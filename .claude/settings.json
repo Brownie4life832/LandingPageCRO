@@ -1,0 +1,12 @@
+{
+  "skills": {
+    "analyze-lp": {
+      "description": "Analyze a landing page for CRO issues. Submit a URL, local file path, or screenshot.",
+      "path": ".claude/skills/analyze-lp.md"
+    },
+    "learn-from-review": {
+      "description": "Feed in your expert CRO review (video transcript, notes, or annotated screenshots) so the agent learns your analysis style and insights.",
+      "path": ".claude/skills/learn-from-review.md"
+    }
+  }
+}
