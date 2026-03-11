@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soulsmart 2-Handle Smart Cane — Walk with Confidence | Shop LC</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #0B1225;
+      --navy-light: #111D3A;
+      --navy-mid: #162040;
+      --blue-cta: #2D7FF9;
+      --blue-cta-hover: #1B6AE0;
+      --gold: #E8A838;
+      --gold-light: #F5C563;
+      --cream: #FFF8ED;
+      --cream-dark: #F0E6D3;
+      --white: #FFFFFF;
+      --text-light: #C8D0E0;
+      --text-muted: #8B95AD;
+      --green: #22C55E;
+      --red-badge: #EF4444;
+      --font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+      --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--navy);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    /* ============== UTILITY ============== */
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .cta-button {
+      display: block;
+      width: 100%;
+      padding: 18px 24px;
+      background: var(--blue-cta);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 19px;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 20px rgba(45, 127, 249, 0.35);
+      min-height: 58px;
+      line-height: 1.2;
+    }
+    .cta-button:hover {
+      background: var(--blue-cta-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 6px 28px rgba(45, 127, 249, 0.45);
+    }
+    .cta-button:active {
+      transform: translateY(0);
+    }
+
+    @keyframes cta-glow {
+      0%, 100% { box-shadow: 0 4px 20px rgba(45, 127, 249, 0.35); }
+      50% { box-shadow: 0 4px 32px rgba(45, 127, 249, 0.55); }
+    }
+    .cta-button {
+      animation: cta-glow 3s ease-in-out infinite;
+    }
+    .cta-button:hover {
+      animation: none;
+    }
+
+    .section-gap { padding: 56px 0; }
+
+    /* ============== HERO ============== */
+    .hero {
+      background: var(--navy);
+      padding-top: 16px;
+      padding-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(45, 127, 249, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+    .logo {
+      font-family: var(--font-body);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .logo span { color: var(--gold); }
+
+    .hero-badges {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .stars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      font-size: 18px;
+      color: var(--gold);
+    }
+    .stars-text {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-left: 4px;
+    }
+    .demand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(232, 168, 56, 0.18);
+      border: 1px solid rgba(232, 168, 56, 0.35);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--gold-light);
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.15;
+      color: var(--white);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+
+    .trust-strip {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    .trust-icon {
+      width: 16px;
+      height: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .trust-dot { color: var(--text-muted); font-size: 10px; }
+
+    /* ============== EMOTIONAL HOOK ============== */
+    .emotional-hook {
+      background: linear-gradient(180deg, var(--navy) 0%, var(--navy-light) 100%);
+      padding: 48px 0;
+    }
+    .emotional-hook h2 {
+      font-family: var(--font-display);
+      font-size: 30px;
+      line-height: 1.2;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+    .emotional-hook h2 span {
+      color: var(--gold-light);
+    }
+    .emotional-hook p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-light);
+      margin-bottom: 28px;
+    }
+    .hero-image-placeholder {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--navy-mid) 0%, #1a2a50 50%, #0f1c38 100%);
+      border: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-image-placeholder::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 30% 70%, rgba(232, 168, 56, 0.06) 0%, transparent 60%);
+    }
+    .img-placeholder-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+    .img-placeholder-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 500;
+      max-width: 200px;
+      line-height: 1.4;
+      position: relative;
+    }
+
+    /* ============== BENEFITS ============== */
+    .benefits {
+      background: var(--navy-light);
+      padding: 56px 0 32px;
+    }
+    .benefits-intro {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .benefits-intro h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .benefits-intro p {
+      font-size: 16px;
+      color: var(--text-muted);
+    }
+
+    .benefit-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 20px;
+      margin-bottom: 24px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .benefit-image {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, var(--navy-mid) 0%, #1a2a50 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    .benefit-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: linear-gradient(to top, rgba(17, 29, 58, 0.8), transparent);
+    }
+
+    .benefit-body {
+      padding: 24px 20px 28px;
+    }
+    .benefit-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .benefit-body h3 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--white);
+      line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .benefit-body p {
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--text-light);
+    }
+
+    /* ============== SOCIAL PROOF ============== */
+    .social-proof {
+      background: var(--navy);
+      padding: 56px 0;
+    }
+    .social-proof > .container > h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--white);
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
+
+    .testimonial-card {
+      background: var(--cream);
+      color: var(--navy);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .testimonial-card::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 60px;
+      color: var(--gold);
+      opacity: 0.3;
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      line-height: 1;
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy-light), var(--navy-mid));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .testimonial-name {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--navy);
+    }
+    .verified-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #DCFCE7;
+      color: #15803D;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+    }
+    .testimonial-stars {
+      color: var(--gold);
+      font-size: 14px;
+      letter-spacing: 1px;
+    }
+    .testimonial-text {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #2D3748;
+      position: relative;
+    }
+
+    /* ============== PRICE SECTION ============== */
+    .price-section {
+      background: linear-gradient(180deg, var(--navy-light) 0%, var(--navy) 100%);
+      padding: 56px 0;
+    }
+    .price-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .price-label {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 6px;
+    }
+    .price-original {
+      font-size: 22px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+    .price-current {
+      font-family: var(--font-display);
+      font-size: 52px;
+      color: var(--white);
+    }
+    .price-save {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      color: #FCA5A5;
+      font-size: 15px;
+      font-weight: 700;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .price-shipping {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 15px;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .color-swatches {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .swatch {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .swatch:hover, .swatch.active {
+      border-color: var(--white);
+      transform: scale(1.1);
+    }
+    .swatch-black { background: #1a1a1a; }
+    .swatch-purple { background: #8B5CF6; }
+    .swatch-blue { background: #3B82F6; }
+    .swatch-red { background: #EF4444; }
+
+    .color-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+    .budget-pay {
+      font-size: 15px;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+    .budget-pay strong {
+      color: var(--white);
+    }
+
+    /* ============== FAMILY SECTION ============== */
+    .family-section {
+      background: var(--navy);
+      padding: 56px 0;
+      position: relative;
+    }
+    .family-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      border-radius: 2px;
+    }
+    .family-section h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      line-height: 1.2;
+      color: var(--white);
+      text-align: center;
+      margin-bottom: 16px;
+      margin-top: 8px;
+    }
+    .family-section h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .family-section p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: var(--text-light);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    /* ============== FOOTER ============== */
+    .footer {
+      background: #070D1A;
+      padding: 40px 0;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .footer-logo span { color: var(--gold); }
+    .footer-info {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+    .footer-info a {
+      color: var(--text-muted);
+      text-decoration: underline;
+    }
+
+    /* ============== STICKY CTA ============== */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(11, 18, 37, 0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 12px 20px;
+      z-index: 100;
+      transform: translateY(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .sticky-cta.visible {
+      transform: translateY(0);
+    }
+    .sticky-cta .cta-button {
+      font-size: 17px;
+      padding: 16px 20px;
+      min-height: 52px;
+      border-radius: 12px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ============== SCROLL ANIMATIONS ============== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Staggered delays */
+    .delay-1 { transition-delay: 0.1s; }
+    .delay-2 { transition-delay: 0.2s; }
+    .delay-3 { transition-delay: 0.3s; }
+
+    /* ============== DESKTOP ============== */
+    @media (min-width: 768px) {
+      .container {
+        max-width: 640px;
+        padding: 0 32px;
+      }
+      .hero h1 { font-size: 42px; }
+      .emotional-hook h2 { font-size: 38px; }
+      .benefit-body h3 { font-size: 32px; }
+      .price-current { font-size: 60px; }
+      .family-section h2 { font-size: 36px; }
+      .social-proof > .container > h2 { font-size: 32px; }
+      .benefits-intro h2 { font-size: 34px; }
+    }
+
+    /* Bottom padding for sticky CTA */
+    body { padding-bottom: 80px; }
+  </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-topbar">
+      <div class="logo">Shop <span>LC</span></div>
+      <div class="demand-badge">🔥 In High Demand</div>
+    </div>
+
+    <div class="hero-badges">
+      <div class="stars">★★★★★ <span class="stars-text">4.7 · 197 reviews</span></div>
+    </div>
+
+    <h1>Walk Anywhere. Stand Up Alone. <em>Never Fear a Fall Again.</em></h1>
+
+    <p class="hero-sub">The Soulsmart Smart Cane has two handles for real stability, a built-in LED so you're always seen, and an SOS alarm your family will thank you for. Foldable, adjustable, and 75% off today.</p>
+
+    <a href="#buy" class="cta-button" id="hero-cta">Get My Smart Cane — 75% Off</a>
+
+    <div class="trust-strip">
+      <div class="trust-item">
+        <span class="trust-icon">🔒</span> 100% Secure Checkout
+      </div>
+      <span class="trust-dot">·</span>
+      <div class="trust-item">
+        <span class="trust-icon">👥</span> 1M+ Happy Customers
+      </div>
+      <span class="trust-dot">·</span>
+      <div class="trust-item">
+        <span class="trust-icon">↩️</span> 30-Day Returns
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EMOTIONAL HOOK ===== -->
+<section class="emotional-hook">
+  <div class="container">
+    <h2 class="fade-up">Step with <span>Joy.</span><br>Walk with Confidence.</h2>
+    <p class="fade-up delay-1">You used to walk out the front door without thinking twice. This cane brings that feeling back — with extra grip, a light that leads the way, and an alarm that means you're never truly alone.</p>
+
+    <div class="hero-image-placeholder fade-up delay-2">
+      <div class="img-placeholder-icon">🚶‍♂️💡</div>
+      <div class="img-placeholder-label">Elderly person walking confidently at dusk with LED cane light illuminating the path ahead</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 5 BIG BENEFITS ===== -->
+<section class="benefits">
+  <div class="container">
+    <div class="benefits-intro fade-up">
+      <h2>Why This Cane Is Different</h2>
+      <p>Every feature exists to keep you safe and independent.</p>
+    </div>
+
+    <!-- Benefit 1 -->
+    <div class="benefit-card fade-up">
+      <div class="benefit-image">
+        <div class="img-placeholder-icon">🤲</div>
+        <div class="img-placeholder-label">Close-up of dual ergonomic handles showing top grip and secondary support handle</div>
+      </div>
+      <div class="benefit-body">
+        <div class="benefit-number">1</div>
+        <h3>Two Handles = Zero Fall Risk</h3>
+        <p>Grip the top handle for walking. Grab both to stand up from a chair, a couch, or a car — without asking anyone for help. Tested to hold 250+ lbs without budging.</p>
+      </div>
+    </div>
+
+    <!-- Benefit 2 -->
+    <div class="benefit-card fade-up">
+      <div class="benefit-image">
+        <div class="img-placeholder-icon">🚨</div>
+        <div class="img-placeholder-label">Close-up of the SOS alarm button on the cane handle, glowing red</div>
+      </div>
+      <div class="benefit-body">
+        <div class="benefit-number">2</div>
+        <h3>SOS Alarm — Help Is One Button Away</h3>
+        <p>Slip on a curb. Lose your balance on a path. Press the alarm and the siren sounds immediately. Your neighbors hear it. You're never stranded alone.</p>
+      </div>
+    </div>
+
+    <!-- Benefit 3 -->
+    <div class="benefit-card fade-up">
+      <div class="benefit-image">
+        <div class="img-placeholder-icon">🔦</div>
+        <div class="img-placeholder-label">Cane LED light illuminating a dark sidewalk at night, beam clearly visible</div>
+      </div>
+      <div class="benefit-body">
+        <div class="benefit-number">3</div>
+        <h3>Built-In LED — See Everything, Be Seen by Everyone</h3>
+        <p>No separate flashlight. No fumbling in the dark. The LED lights up the path ahead and makes you visible to drivers. Walk the dog after dinner. Walk with confidence.</p>
+      </div>
+    </div>
+
+    <!-- Benefit 4 -->
+    <div class="benefit-card fade-up">
+      <div class="benefit-image">
+        <div class="img-placeholder-icon">👜</div>
+        <div class="img-placeholder-label">Cane folded compact, fitting inside a travel bag next to everyday items</div>
+      </div>
+      <div class="benefit-body">
+        <div class="benefit-number">4</div>
+        <h3>Folds Flat, Goes Everywhere</h3>
+        <p>This isn't a bulky medical device you leave in the corner. It folds compact enough to fit in a tote, under a restaurant table, or in the trunk. Bring it everywhere.</p>
+      </div>
+    </div>
+
+    <!-- Benefit 5 -->
+    <div class="benefit-card fade-up">
+      <div class="benefit-image">
+        <div class="img-placeholder-icon">🏗️</div>
+        <div class="img-placeholder-label">Cane standing perfectly upright on its own thanks to the 360° rotating base</div>
+      </div>
+      <div class="benefit-body">
+        <div class="benefit-number">5</div>
+        <h3>Stands On Its Own — No Tipping, No Hassle</h3>
+        <p>The 360° rotating base means you can set it down anywhere and it stays upright. No more chasing a fallen cane across the floor.</p>
+      </div>
+    </div>
+
+    <a href="#buy" class="cta-button fade-up">Get My Smart Cane — 75% Off</a>
+  </div>
+</section>
+
+<!-- ===== SOCIAL PROOF ===== -->
+<section class="social-proof">
+  <div class="container">
+    <h2 class="fade-up">Real support. Real stability.<br>Real confidence in every step.</h2>
+
+    <div class="testimonial-card fade-up">
+      <div class="testimonial-header">
+        <div class="testimonial-avatar">JB</div>
+        <div>
+          <div class="testimonial-name">Joseph B.</div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="verified-badge">✓ Verified Buyer</span>
+            <span class="testimonial-stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+      <p class="testimonial-text">"I'm 6 feet tall and weigh 250 pounds. I grabbed both handles and used it to get out of a chair. It didn't give even a little bit. $30 for a quality product with a light and an effective siren is an incredible deal."</p>
+    </div>
+
+    <div class="testimonial-card fade-up delay-1">
+      <div class="testimonial-header">
+        <div class="testimonial-avatar">JH</div>
+        <div>
+          <div class="testimonial-name">Jutta H.</div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="verified-badge">✓ Verified Buyer</span>
+            <span class="testimonial-stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+      <p class="testimonial-text">"What a very helpful product to walk safely. I ordered more than one — keeping a spare for when I travel."</p>
+    </div>
+
+    <div class="testimonial-card fade-up delay-2">
+      <div class="testimonial-header">
+        <div class="testimonial-avatar">RM</div>
+        <div>
+          <div class="testimonial-name">Ruth M.</div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="verified-badge">✓ Verified Buyer</span>
+            <span class="testimonial-stars">★★★★★</span>
+          </div>
+        </div>
+      </div>
+      <p class="testimonial-text">"Well-made and attractive. I'm keeping one at the house and one in the car, just in case. Already bought two more as gifts for family."</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICE & OFFER ===== -->
+<section class="price-section" id="buy">
+  <div class="container">
+    <div class="price-card fade-up">
+      <div class="price-label">Limited Time Offer</div>
+      <div class="price-row">
+        <span class="price-original">$159.99</span>
+        <span class="price-current">$39.99</span>
+      </div>
+      <div class="price-save">🔥 Save 75%</div>
+
+      <div class="price-shipping">
+        <span>🚚</span> FREE Shipping
+      </div>
+
+      <div class="color-swatches">
+        <div class="swatch swatch-black active" title="Black" data-color="Black"></div>
+        <div class="swatch swatch-purple" title="Purple" data-color="Purple"></div>
+        <div class="swatch swatch-blue" title="Blue" data-color="Blue"></div>
+        <div class="swatch swatch-red" title="Red" data-color="Red"></div>
+      </div>
+      <div class="color-label" id="color-label">Color: Black</div>
+
+      <p class="budget-pay">or <strong>5 easy payments of $8.00</strong> with BudgetPay</p>
+
+      <a href="#" class="cta-button">Get My Smart Cane — 75% Off</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAMILY PEACE OF MIND ===== -->
+<section class="family-section">
+  <div class="container">
+    <h2 class="fade-up">Your Family Will Sleep Better<br>Knowing You're <em>Safe</em></h2>
+    <p class="fade-up delay-1">The SOS alarm means help is always one button away. The LED light means you're always seen. And the dual handles mean getting up from a chair is something you do on your own. That's peace of mind — for you and everyone who loves you.</p>
+    <a href="#buy" class="cta-button fade-up delay-2">Get My Smart Cane — 75% Off</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">Shop <span>LC</span></div>
+    <div class="footer-info">
+      40+ Years in Business · Austin, TX<br>
+      30-Day Hassle-Free Returns · Free Shipping on $50+<br>
+      <br>
+      © 2026 Shop LC. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- ===== STICKY CTA ===== -->
+<div class="sticky-cta" id="sticky-cta">
+  <a href="#buy" class="cta-button">Get My Smart Cane — 75% Off</a>
+</div>
+
+<script>
+  // ===== Sticky CTA visibility =====
+  const stickyCta = document.getElementById('sticky-cta');
+  const heroCta = document.getElementById('hero-cta');
+
+  const heroObserver = new IntersectionObserver(
+    ([entry]) => {
+      stickyCta.classList.toggle('visible', !entry.isIntersecting);
+    },
+    { threshold: 0 }
+  );
+  heroObserver.observe(heroCta);
+
+  // ===== Scroll reveal animations =====
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15, rootMargin: '0px 0px -40px 0px' }
+  );
+  fadeEls.forEach(el => revealObserver.observe(el));
+
+  // ===== Color swatch interaction =====
+  const swatches = document.querySelectorAll('.swatch');
+  const colorLabel = document.getElementById('color-label');
+
+  swatches.forEach(swatch => {
+    swatch.addEventListener('click', () => {
+      swatches.forEach(s => s.classList.remove('active'));
+      swatch.classList.add('active');
+      colorLabel.textContent = 'Color: ' + swatch.dataset.color;
+    });
+  });
+</script>
+</body>
+</html>

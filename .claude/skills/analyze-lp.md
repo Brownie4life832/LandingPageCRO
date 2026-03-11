@@ -62,7 +62,37 @@ Output the full structured report following the format in CLAUDE.md:
 - Detailed per-dimension analysis
 - 2-3 A/B test hypotheses
 
-### Step 4: Save Learnings
+### Step 4: Write the Headlines & Copy
+
+This is NOT optional. After the diagnostic report, switch into copywriter mode:
+
+1. **Identify the top 6 value props** — Rank the product/service's most compelling attributes by purchase-driving power for the target audience. Cut commodity features (spec-sheet items). Keep only what would make someone stop scrolling and say "I need this."
+
+2. **Write 4 headline options** from different angles:
+   - Direct outcome (what the buyer gets)
+   - Pain-point (the problem they're escaping)
+   - Mechanism (how/why it works)
+   - Emotional/identity (who they become)
+
+3. **Write 1 subheadline** that pairs with any headline above.
+
+4. **Write 6 value prop blocks** — Short, benefit-first copy for each of the top 6 attributes. Written in the audience's language, not marketing-speak.
+
+5. **Write 2-3 CTA copy variations** that communicate value, not just action.
+
+### Step 5: Write the Narrative Arc
+
+Tell the story the page should follow. Write it as actual copy, not instructions:
+
+1. **The Problem** — Name the pain. Make the visitor feel seen.
+2. **The Shift** — Challenge their assumption about the solution.
+3. **The Solution** — Introduce the product through the lens of the reframe.
+4. **The Proof** — Outcomes, social proof, evidence.
+5. **The Close** — Urgency + clear action.
+
+This story should be ready to drop onto the page. It's the spine of the entire landing page.
+
+### Step 6: Save Learnings
 
 After delivering the report, check if any new patterns or insights emerged:
 - Was there a recurring issue you've seen before? Update the tally in memory.
@@ -81,4 +111,6 @@ Update the memory file at `.claude/memory/analysis-log.md` with:
 - Suggest specific copy alternatives, not just "improve the copy"
 - Include estimated impact (high/medium/low) for each recommendation
 - If analyzing a screenshot only, clearly note which dimensions couldn't be fully assessed
+- The Headlines & Copy + Narrative Arc sections are MANDATORY in every analysis — never skip them
+- Write copy like a practitioner, not a consultant. Deliver lines they can paste into Figma or their CMS today.
 - Ask the user if they want deeper analysis on any specific dimension

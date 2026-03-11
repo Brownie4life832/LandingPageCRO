@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gr&uuml;ns Daily Nutrition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green-dark: #00592d;
+      --green-mid: #006B35;
+      --green-brand: #007A3D;
+      --green-light: #e8f5e9;
+      --gold: #D4A843;
+      --gold-light: #FFF7DF;
+      --yellow-tag: #F5C518;
+      --white: #ffffff;
+      --off-white: #f8f6f1;
+      --text-dark: #1a1a1a;
+      --text-body: #333333;
+      --text-muted: #666666;
+      --star-color: #E8A100;
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text-body);
+      line-height: 1.6;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== ANNOUNCEMENT BAR ===== */
+    .announcement-bar {
+      background: var(--green-dark);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+
+    .countdown-digit {
+      background: var(--white);
+      color: var(--green-dark);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 800;
+      font-size: 14px;
+      min-width: 24px;
+      text-align: center;
+    }
+
+    .countdown-label {
+      font-size: 11px;
+      text-transform: capitalize;
+      margin-right: 8px;
+    }
+
+    .announcement-bar .promo-line {
+      font-size: 14px;
+    }
+
+    .announcement-bar .promo-line a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    /* ===== LOGO HEADER ===== */
+    .logo-header {
+      text-align: center;
+      padding: 16px;
+      background: var(--white);
+    }
+
+    .logo-header .logo {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--green-dark);
+      letter-spacing: -0.5px;
+    }
+
+    /* ===== STICKY NAV ===== */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--off-white);
+      border-bottom: 1px solid #e0e0e0;
+      padding: 10px 20px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sticky-nav.visible { display: flex; }
+
+    .sticky-nav .logo {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--green-dark);
+    }
+
+    .sticky-nav .nav-center {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .sticky-nav .nav-cta {
+      background: var(--green-brand);
+      color: var(--white);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .sticky-nav .nav-cta:hover { background: var(--green-dark); }
+
+    @media (min-width: 768px) {
+      .sticky-nav .nav-center { display: flex; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 20px 40px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-image {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-image .placeholder-text {
+      color: rgba(255,255,255,0.7);
+      font-size: 14px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: var(--yellow-tag);
+      color: var(--text-dark);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 4px;
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+
+    .hero-content h1 span {
+      color: var(--green-brand);
+    }
+
+    .hero-content .hero-subtitle {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+
+    .hero-content .hero-desc {
+      font-size: 16px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--green-brand);
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px 40px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      width: 100%;
+      max-width: 400px;
+      transition: background 0.2s;
+    }
+
+    .cta-btn:hover { background: var(--green-dark); }
+
+    .social-proof-line {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      flex-wrap: wrap;
+    }
+
+    .stars {
+      color: var(--star-color);
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+
+    .social-proof-line .separator {
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        grid-template-columns: 1fr 1fr;
+        padding: 40px 40px 60px;
+        gap: 48px;
+      }
+      .hero-content h1 { font-size: 42px; }
+      .hero-content .hero-subtitle { font-size: 28px; }
+      .cta-btn { width: auto; }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-content h1 { font-size: 48px; }
+    }
+
+    /* ===== BENEFIT SECTIONS ===== */
+    .benefit-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .benefit-text .benefit-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid var(--green-brand);
+      padding-bottom: 8px;
+      margin-bottom: 20px;
+    }
+
+    .benefit-text .benefit-category {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--green-brand);
+    }
+
+    .benefit-text .benefit-number {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .benefit-text h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.2;
+      color: var(--green-brand);
+      margin-bottom: 16px;
+    }
+
+    .benefit-text p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-body);
+      margin-bottom: 12px;
+    }
+
+    .benefit-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .benefit-images .img-placeholder {
+      border-radius: 12px;
+      aspect-ratio: 3/4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 12px;
+    }
+
+    .benefit-images .img-placeholder.single {
+      grid-column: 1 / -1;
+      aspect-ratio: 16/9;
+    }
+
+    @media (min-width: 768px) {
+      .benefit-section {
+        grid-template-columns: 1fr 1fr;
+        padding: 60px 40px;
+        gap: 48px;
+      }
+      .benefit-text h2 { font-size: 40px; }
+    }
+
+    /* ===== STATS SECTION ===== */
+    .stats-section {
+      max-width: 1100px;
+      margin: 40px 20px;
+      padding: 40px 20px;
+      border: 2px solid var(--green-brand);
+      border-radius: 16px;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    @media (min-width: 768px) {
+      .stats-section { padding: 48px 40px; }
+    }
+
+    @media (min-width: 1140px) {
+      .stats-section { margin-left: auto; margin-right: auto; }
+    }
+
+    .stats-section .stats-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--green-brand);
+      margin-bottom: 8px;
+    }
+
+    .stats-section .stats-subtitle {
+      font-size: 15px;
+      color: var(--text-body);
+      margin-bottom: 32px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .stat-item {
+      text-align: left;
+    }
+
+    .stat-item .stat-bar {
+      width: 40px;
+      height: 3px;
+      background: var(--green-brand);
+      margin-bottom: 12px;
+    }
+
+    .stat-item .stat-number {
+      font-family: var(--font-display);
+      font-size: 40px;
+      color: var(--green-dark);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .stat-item .stat-desc {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.5;
+    }
+
+    .stats-section .stats-footnote {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .stats-grid { grid-template-columns: repeat(4, 1fr); }
+      .stat-item .stat-number { font-size: 52px; }
+    }
+
+    /* ===== MID CTA SECTION ===== */
+    .mid-cta {
+      text-align: center;
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .mid-cta .pill-badge {
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 50px;
+      padding: 8px 20px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-body);
+      margin-bottom: 20px;
+    }
+
+    .mid-cta h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      line-height: 1.2;
+      color: var(--green-dark);
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .mid-cta p {
+      font-size: 16px;
+      color: var(--text-muted);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mid-cta .social-proof-line {
+      justify-content: center;
+      margin-bottom: 0;
+    }
+
+    @media (min-width: 768px) {
+      .mid-cta h2 { font-size: 42px; }
+    }
+
+    /* ===== BUY BOX ===== */
+    .buybox-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .buybox-product {
+      background: var(--white);
+      border: 2px solid var(--green-dark);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .buybox-product-banner {
+      background: var(--green-dark);
+      color: var(--white);
+      text-align: center;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .buybox-product-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .buybox-product-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2E7D32, #4CAF50);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 13px;
+    }
+
+    .buybox-benefits-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 14px;
+      color: var(--text-body);
+    }
+
+    .buybox-benefits-list li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .buybox-benefits-list li::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--green-brand);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .buybox-config {
+      width: 100%;
+    }
+
+    .buybox-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--green-brand);
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .sugar-toggle {
+      display: flex;
+      background: var(--green-light);
+      border-radius: 50px;
+      padding: 4px;
+      margin-bottom: 20px;
+    }
+
+    .sugar-toggle button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-dark);
+      transition: all 0.2s;
+    }
+
+    .sugar-toggle button.active {
+      background: var(--green-brand);
+      color: var(--white);
+    }
+
+    .plan-card {
+      border: 2px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      position: relative;
+    }
+
+    .plan-card.selected {
+      border-color: var(--green-dark);
+      box-shadow: 0 0 0 1px var(--green-dark);
+    }
+
+    .plan-card .plan-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4px;
+    }
+
+    .plan-card .plan-name {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-dark);
+    }
+
+    .plan-card .discount-badge {
+      background: var(--green-brand);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 50px;
+    }
+
+    .plan-card .plan-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+
+    .plan-card .price-current {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-dark);
+    }
+
+    .plan-card .price-original {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .plan-card .price-per-day {
+      font-size: 13px;
+      color: var(--green-brand);
+      font-weight: 600;
+    }
+
+    .plan-perks {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+
+    .plan-perks li {
+      font-size: 14px;
+      padding: 3px 0;
+      color: var(--text-body);
+    }
+
+    .plan-perks li::before {
+      content: "✅ ";
+    }
+
+    .buybox-cta {
+      display: block;
+      width: 100%;
+      background: var(--green-dark);
+      color: var(--white);
+      font-size: 18px;
+      font-weight: 700;
+      padding: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      box-shadow: 5px 5px 0px 0px #000;
+      transition: all 0.15s;
+    }
+
+    .buybox-cta:hover {
+      box-shadow: 1px 1px 0px 0px #000;
+      transform: translate(4px, 4px);
+    }
+
+    .buybox-discount-note {
+      text-align: center;
+      background: #FFF8DC;
+      border: 1px solid #E8D48B;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-top: 12px;
+    }
+
+    .buybox-shipping-bar {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      padding: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 12px;
+    }
+
+    .buybox-shipping-bar span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Accordion */
+    .accordion { margin-top: 20px; }
+
+    .accordion-item {
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 16px 0;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+
+    .accordion-trigger .plus {
+      font-size: 24px;
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .accordion-content.open {
+      max-height: 600px;
+    }
+
+    .accordion-content-inner {
+      padding: 0 0 16px;
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    @media (min-width: 768px) {
+      .buybox-section { grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 40px 60px; }
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials-section {
+      padding: 60px 20px;
+      text-align: center;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    .testimonials-section h2 {
+      font-family: var(--font-display);
+      font-size: 28px;
+      color: var(--text-dark);
+      margin-bottom: 32px;
+    }
+
+    .testimonials-section h2 span {
+      color: var(--green-brand);
+    }
+
+    .testimonials-scroll {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 20px 16px;
+      scrollbar-width: none;
+    }
+
+    .testimonials-scroll::-webkit-scrollbar { display: none; }
+
+    .testimonial-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: var(--white);
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .testimonial-card .tc-stars {
+      color: var(--star-color);
+      font-size: 18px;
+      margin-bottom: 12px;
+      letter-spacing: 2px;
+    }
+
+    .testimonial-card .tc-title {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .testimonial-card .tc-body {
+      font-size: 14px;
+      color: var(--text-body);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card .tc-author {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    .testimonial-card .tc-verified {
+      font-size: 12px;
+      color: var(--green-brand);
+      font-weight: 600;
+    }
+
+    @media (min-width: 768px) {
+      .testimonials-section h2 { font-size: 36px; }
+    }
+
+    /* ===== REVIEWS SECTION ===== */
+    .reviews-section {
+      background: var(--off-white);
+      padding: 60px 20px;
+    }
+
+    .reviews-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .reviews-tabs {
+      display: flex;
+      gap: 24px;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 32px;
+    }
+
+    .reviews-tabs button {
+      background: none;
+      border: none;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-muted);
+      padding: 8px 0;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+    }
+
+    .reviews-tabs button.active {
+      color: var(--text-dark);
+      border-bottom-color: var(--green-brand);
+    }
+
+    .reviews-summary {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+
+    .reviews-score {
+      text-align: center;
+    }
+
+    .reviews-score .score-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+
+    .reviews-score .score-stars {
+      color: var(--star-color);
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin: 8px 0 4px;
+    }
+
+    .reviews-score .score-count {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .reviews-bars {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .bar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+
+    .bar-row .bar-label {
+      font-size: 13px;
+      width: 16px;
+      text-align: right;
+      color: var(--text-muted);
+    }
+
+    .bar-row .bar-track {
+      flex: 1;
+      height: 8px;
+      background: #e0e0e0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .bar-row .bar-fill {
+      height: 100%;
+      background: var(--green-brand);
+      border-radius: 4px;
+    }
+
+    .review-card {
+      border-bottom: 1px solid #e0e0e0;
+      padding: 20px 0;
+    }
+
+    .review-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .reviewer {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .reviewer-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--green-dark);
+    }
+
+    .reviewer-name {
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dark);
+    }
+
+    .reviewer-badge {
+      font-size: 12px;
+      color: var(--green-brand);
+      font-weight: 600;
+    }
+
+    .review-date {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .review-card .review-stars {
+      color: var(--star-color);
+      margin-bottom: 8px;
+      letter-spacing: 2px;
+    }
+
+    .review-card .review-title {
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text-dark);
+    }
+
+    .review-card .review-body {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-body);
+    }
+
+    .review-card .review-meta {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ===== FOOTER ===== */
+    .page-footer {
+      background: var(--green-dark);
+      color: var(--gold-light);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 13px;
+    }
+
+    .page-footer .footer-logo {
+      font-family: var(--font-display);
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .page-footer p {
+      opacity: 0.7;
+      line-height: 1.5;
+    }
+
+    /* ===== UTILITIES ===== */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar">
+    <div class="countdown">
+      <span class="countdown-digit" id="cd-d1">0</span><span class="countdown-digit" id="cd-d2">0</span>
+      <span class="countdown-label">Days</span>
+      <span class="countdown-digit" id="cd-h1">1</span><span class="countdown-digit" id="cd-h2">3</span>
+      <span class="countdown-label">Hours</span>
+      <span class="countdown-digit" id="cd-m1">1</span><span class="countdown-digit" id="cd-m2">0</span>
+      <span class="countdown-label">Min</span>
+      <span class="countdown-digit" id="cd-s1">0</span><span class="countdown-digit" id="cd-s2">0</span>
+      <span class="countdown-label">Sec</span>
+    </div>
+    <div class="promo-line">
+      &#127818; Mango Sorbet, Final Days &#128680;<br>
+      <a href="#offer">Get 52% off + free shipping</a> on your first order
+    </div>
+  </div>
+
+  <!-- LOGO HEADER -->
+  <header class="logo-header">
+    <div class="logo">gr&uuml;ns</div>
+  </header>
+
+  <!-- STICKY NAV -->
+  <nav class="sticky-nav" id="stickyNav" aria-label="Sticky navigation">
+    <div class="logo">gr&uuml;ns</div>
+    <div class="nav-center">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>4.8 stars &bull; 85K+ reviews &bull; 1M+ members</span>
+    </div>
+    <a href="#offer" class="nav-cta">Save 52% + Free Shipping</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-image">
+      <div class="placeholder-text">
+        <div style="font-size:48px;margin-bottom:8px;">&#129389;</div>
+        Hero lifestyle image:<br>Woman enjoying Gr&uuml;ns gummies with product bag visible
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge">Limited Time Sale &ndash; Get Up To 52% Off</div>
+      <h1><span>7 benefits</span> GLP-1 users love about <span>Gr&uuml;ns</span></h1>
+      <p class="hero-subtitle">(besides the poops)</p>
+      <p class="hero-desc">On a GLP-1 or weight loss journey? Here&rsquo;s why adding Gr&uuml;ns to your routine can make a real difference, without adding complexity.</p>
+      <a href="#offer" class="cta-btn">Save 52% + Free Shipping</a>
+      <div class="social-proof-line">
+        <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>4.8 stars</span>
+        <span class="separator">&bull;</span>
+        <span>85K+ reviews</span>
+        <span class="separator">&bull;</span>
+        <span>1M+ members</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFIT 01 - DIGESTION -->
+  <section class="benefit-section">
+    <div class="benefit-text">
+      <div class="benefit-header">
+        <span class="benefit-category">Digestion</span>
+        <span class="benefit-number">01</span>
+      </div>
+      <h2>Better poops (seriously)</h2>
+      <p>GLP-1s are famous for slowing digestion and that often means, well, no poops.</p>
+      <p>Gr&uuml;ns delivers 6g of prebiotic fiber to help keep things moving and support healthy, regular digestion.</p>
+    </div>
+    <div class="benefit-images">
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#5D4037,#8D6E63)">Product bag on bookshelf</div>
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#FFCCBC,#FFAB91)">Hands on stomach / gut health</div>
+    </div>
+  </section>
+
+  <!-- BENEFIT 02 - NUTRIENT GAPS -->
+  <section class="benefit-section">
+    <div class="benefit-text">
+      <div class="benefit-header">
+        <span class="benefit-category">Nutrient Gaps</span>
+        <span class="benefit-number">02</span>
+      </div>
+      <h2>Fill nutrient gaps on GLP-1s</h2>
+      <p>GLP-1s reduce appetite, which can make it tough to get all the nutrients your body needs.</p>
+      <p>Gr&uuml;ns helps fill those gaps with 20+ essential vitamins and minerals, plus organic fruits and veggies, adaptogens, and antioxidants, all in one easy daily pack. No pills, no powders.</p>
+    </div>
+    <div class="benefit-images">
+      <div class="img-placeholder single" style="background:linear-gradient(135deg,#1B5E20,#4CAF50)">Fresh produce &mdash; lemons, berries, broccoli, ginger</div>
+    </div>
+  </section>
+
+  <!-- BENEFIT 03 - NUTRITION -->
+  <section class="benefit-section">
+    <div class="benefit-text">
+      <div class="benefit-header">
+        <span class="benefit-category">Nutrition</span>
+        <span class="benefit-number">03</span>
+      </div>
+      <h2>The most nutrition per calorie</h2>
+      <p>When eating less, it&rsquo;s crucial to maximize your nutrient intake per calorie. Gr&uuml;ns is designed to do exactly that.</p>
+      <p>With 60 ingredients, which include nutrient-dense and whole foods, these little bears ensure you get all the nutrition your body craves in just 20 calories (sugar-free version).</p>
+    </div>
+    <div class="benefit-images">
+      <div class="img-placeholder single" style="background:linear-gradient(135deg,#B3E5FC,#81D4FA)">Hand holding Gr&uuml;ns gummy packs</div>
+    </div>
+  </section>
+
+  <!-- BENEFIT 04 - ENERGY -->
+  <section class="benefit-section">
+    <div class="benefit-text">
+      <div class="benefit-header">
+        <span class="benefit-category">Energy</span>
+        <span class="benefit-number">04</span>
+      </div>
+      <h2>Feel more energized</h2>
+      <p>When you&rsquo;re eating less, energy can take a hit. Gr&uuml;ns supports steady energy with B vitamins to help convert food into fuel, adaptogens for stress support, and prebiotic fiber to help maintain healthy blood sugar levels so you feel balanced and clear throughout the day.</p>
+    </div>
+    <div class="benefit-images">
+      <div class="img-placeholder single" style="background:linear-gradient(135deg,#2E7D32,#66BB6A)">Person outdoors in nature with product</div>
+    </div>
+  </section>
+
+  <!-- BENEFIT 05 - DAILY HABIT -->
+  <section class="benefit-section">
+    <div class="benefit-text">
+      <div class="benefit-header">
+        <span class="benefit-category">Energy</span>
+        <span class="benefit-number">05</span>
+      </div>
+      <h2>One daily habit, countless benefits</h2>
+      <p>Around 95% of users take Gr&uuml;ns 4&ndash;6 days per week!</p>
+      <p>Gr&uuml;ns makes <strong>wellness simple, no prep, no measuring, no mess.</strong> Just one delicious gummy pack a day that actually fits into your busy life (and your taste buds).</p>
+    </div>
+    <div class="benefit-images">
+      <div class="img-placeholder single" style="background:linear-gradient(135deg,#FDD835,#F9A825)">Woman relaxing, eating Gr&uuml;ns gummies</div>
+    </div>
+  </section>
+
+  <!-- BENEFIT 06 - CLINICALLY TESTED -->
+  <section class="benefit-section">
+    <div class="benefit-text">
+      <div class="benefit-header">
+        <span class="benefit-category">Clinically Tested</span>
+        <span class="benefit-number">06</span>
+      </div>
+      <h2>Delicious, clinically tested, and loved by millions</h2>
+      <p>Gr&uuml;ns was put to the test in a 12-week, double-blind, placebo-controlled clinical study. The results? A significant boost in key nutrient levels: folate increased by 20.5% and vitamin C by 40%, two essentials for energy, immunity, and overall vitality.</p>
+    </div>
+    <div class="benefit-images">
+      <div class="img-placeholder single" style="background:linear-gradient(135deg,#263238,#37474F)">
+        Clinical study results chart &mdash; Folate +20.5%, Vitamin C +40%
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS SECTION -->
+  <section class="stats-section">
+    <div class="stats-label">Real Users, Real Results</div>
+    <p class="stats-subtitle">Thousands saw real improvements after 3 months of Gr&uuml;ns. Here&rsquo;s what they said:</p>
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-bar"></div>
+        <div class="stat-number">70%</div>
+        <div class="stat-desc">say their overall health and well-being improved*</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-bar"></div>
+        <div class="stat-number">67%</div>
+        <div class="stat-desc">say they have had better, more regular digestion.*</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-bar"></div>
+        <div class="stat-number">56%</div>
+        <div class="stat-desc">say they feel more energized during the day.*</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-bar"></div>
+        <div class="stat-number">44%</div>
+        <div class="stat-desc">report clearer thinking and better focus.*</div>
+      </div>
+    </div>
+    <p class="stats-footnote">*In a post purchase survey of 3k+ customers who&rsquo;ve been using Gr&uuml;ns daily</p>
+  </section>
+
+  <!-- BENEFIT 07 - LOVED BY MILLIONS -->
+  <section class="benefit-section">
+    <div class="benefit-text">
+      <div class="benefit-header">
+        <span class="benefit-category">Loved By Millions</span>
+        <span class="benefit-number">07</span>
+      </div>
+      <h2>Trusted by 1M+ customers</h2>
+      <p>With over 80,000 five-star reviews and a growing subscriber base, Gr&uuml;ns is the top choice for those looking to fill nutrient gaps in a convenient, tasty, and fun way while boosting overall health.</p>
+    </div>
+    <div class="benefit-images">
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#4E342E,#795548)">Couple enjoying Gr&uuml;ns</div>
+      <div class="img-placeholder" style="background:linear-gradient(135deg,#3E2723,#6D4C41)">Friends sharing product</div>
+    </div>
+  </section>
+
+  <!-- MID CTA -->
+  <section class="mid-cta" id="offer">
+    <div class="pill-badge">3rd-Party &amp; Clinically Tested</div>
+    <h2>GLP-1&rsquo;s new bestie &ndash; nutrient support made easy.</h2>
+    <p>Packed with 60 nutrient-dense ingredients including organic fruits, prebiotics, and adaptogens to fill nutrient gaps, support digestion, and fuel steady energy, especially on a GLP-1 journey.</p>
+    <div class="social-proof-line">
+      <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+      <span>4.8 stars</span>
+      <span class="separator">|</span>
+      <span>85k reviews</span>
+      <span class="separator">|</span>
+      <span>1M+ members</span>
+    </div>
+  </section>
+
+  <!-- BUY BOX -->
+  <section class="buybox-section">
+    <!-- LEFT: Product display -->
+    <div>
+      <div class="buybox-product">
+        <div class="buybox-product-banner">&#128293; LIMITED TIME OFFER: SAVE UP TO 52% &#128293;</div>
+        <div class="buybox-product-body">
+          <div class="buybox-product-img">Gr&uuml;ns product bag</div>
+          <ul class="buybox-benefits-list">
+            <li>Full-body health benefits</li>
+            <li>On-the-go convenience</li>
+            <li>Supports gut health</li>
+            <li>Crash-free energy</li>
+            <li>Great taste, no compromises</li>
+          </ul>
+        </div>
+      </div>
+      <div class="buybox-shipping-bar">
+        <span>&#128666; Ships within 24 Hours</span>
+        <span>&#128230; FREE Shipping</span>
+        <span>&#128522; 30-day guarantee</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: Config + Pricing -->
+    <div class="buybox-config">
+      <div class="buybox-label">Choose Your Offer</div>
+
+      <div class="sugar-toggle">
+        <button class="active" onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Low Sugar</button>
+        <button onclick="this.parentElement.querySelectorAll('button').forEach(b=>b.classList.remove('active'));this.classList.add('active')">Sugar-Free</button>
+      </div>
+
+      <p style="font-size:14px;font-weight:700;margin-bottom:12px;">AutoShip &amp; Save</p>
+
+      <div class="plan-card selected">
+        <div class="plan-header">
+          <span class="plan-name">One Person</span>
+          <span class="discount-badge">49% OFF</span>
+        </div>
+        <div class="plan-price">
+          <span class="price-current">$40.80</span>
+          <span class="price-original">$79.99 USD</span>
+        </div>
+        <span class="price-per-day">$1.46 per day</span>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-header">
+          <span class="plan-name">Two People</span>
+          <span class="discount-badge">52% OFF</span>
+        </div>
+        <div class="plan-price">
+          <span class="price-current">$77.52</span>
+          <span class="price-original">$159.98 USD</span>
+        </div>
+        <span class="price-per-day">$1.38 per day</span>
+      </div>
+
+      <ul class="plan-perks">
+        <li>28 packs every 4 weeks (224 gummies)</li>
+        <li>FAST &amp; FREE Shipping</li>
+        <li>Pause or cancel anytime</li>
+        <li>30-day guarantee</li>
+      </ul>
+
+      <button class="buybox-cta">Start Now</button>
+
+      <div class="buybox-discount-note">Limited Time Discount Auto-Applied &#9989;</div>
+
+      <!-- One-time option -->
+      <div class="plan-card" style="margin-top:20px;">
+        <div class="plan-header">
+          <span class="plan-name">One Time Purchase</span>
+        </div>
+        <div class="plan-price">
+          <span class="price-current">$54.40</span>
+          <span class="price-original">$79.99 USD</span>
+        </div>
+        <span class="price-per-day">$1.94 per day</span>
+      </div>
+
+      <!-- Accordion FAQ -->
+      <div class="accordion">
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.plus').textContent=this.nextElementSibling.classList.contains('open')?'−':'+'">
+            Why Gr&uuml;ns? <span class="plus">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              It&rsquo;s simple!<br><br>
+              <strong>Comprehensive:</strong> Nutrition that works. Gr&uuml;ns replaces handfuls of health products at a fraction of the cost.<br><br>
+              <strong>Delicious:</strong> A habit that tastes so good, you&rsquo;ll actually want to keep it.<br><br>
+              <strong>Portable:</strong> Designed to fit whenever and wherever you want your nutrition. Just grab and go.<br><br>
+              <strong>No Mess, No Stress:</strong> No more gagging on pills, sloshing chalky powders, or cleaning messy counters.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.plus').textContent=this.nextElementSibling.classList.contains('open')?'−':'+'">
+            Ingredients &amp; Allergies <span class="plus">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              Gr&uuml;ns contains over 20 vitamins &amp; minerals including Vitamin A, B6, B12, C, D3, E, K2, Biotin, Folate, and more.<br><br>
+              Also contains dozens of organic nutrient ingredients such as whole food fruits, vegetables, super mushrooms, prebiotics, adaptogens, and antioxidants.<br><br>
+              Gr&uuml;ns are gluten-free, dairy-free, nut-free, vegan, non-GMO, and contain no synthetic sweeteners or dyes. Pectin base (fruit fiber), no gelatin.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.plus').textContent=this.nextElementSibling.classList.contains('open')?'−':'+'">
+            Science &amp; Certifications <span class="plus">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              <strong>Clinically Tested:</strong> 12-week, randomized, double-blind, placebo-controlled study. Participants showed meaningful increases in key nutrients.<br><br>
+              <strong>Third Party Testing:</strong> Every lot undergoes rigorous testing with Eurofins Scientific for quality and purity.<br><br>
+              <strong>Certifications:</strong> Manufactured in NSF, GMP, and FDA registered facilities in the U.S. &amp; Canada.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.plus').textContent=this.nextElementSibling.classList.contains('open')?'−':'+'">
+            Directions <span class="plus">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              Each large pouch of Gr&uuml;ns contains 28 individual packs. Grab a single pack daily and enjoy the small handful of green gummy bears inside for comprehensive nutrition.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <button class="accordion-trigger" onclick="this.nextElementSibling.classList.toggle('open');this.querySelector('.plus').textContent=this.nextElementSibling.classList.contains('open')?'−':'+'">
+            Benefits <span class="plus">+</span>
+          </button>
+          <div class="accordion-content">
+            <div class="accordion-content-inner">
+              Gr&uuml;ns supports digestion, immune health, energy metabolism, and normal cognitive function &mdash; plus nutrients that help maintain healthy hair, skin, and nails &mdash; all in one convenient and delicious daily pack of gummies.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <h2>Real reviews from users on GLP-1 and <span>Gr&uuml;ns</span></h2>
+    <div class="testimonials-scroll">
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="tc-title">&ldquo;Feel better overall and no horrible side effects&rdquo;</div>
+        <div class="tc-body">I started taking these in conjunction with a GLP-1 and I have to say my energy levels are great, I just feel better overall and I haven&rsquo;t had any of the horrible side effects that some people get from the meds. I&rsquo;m definitely a believer!</div>
+        <div class="tc-author">Kathy</div>
+        <div class="tc-verified">Verified Purchase</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="tc-title">&ldquo;Gr&uuml;ns + GLP-1 = GAMECHANGER&rdquo;</div>
+        <div class="tc-body">If you&rsquo;re looking for a delicious and convenient way to support your digestive health, especially while taking GLP-1&rsquo;s, I highly recommend giving Gr&uuml;ns a try. Your tummy (and your taste buds) will thank you.</div>
+        <div class="tc-author">Taylor</div>
+        <div class="tc-verified">Verified Purchase</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="tc-title">&ldquo;Must have if you are on a GLP-1 journey&rdquo;</div>
+        <div class="tc-body">I&rsquo;ve been having a problem with gut health since I started my GLP-1 journey, and this supplement is the only thing that has helped. I will recommend it to anyone on the GLP-1 journey.</div>
+        <div class="tc-author">Jennifer</div>
+        <div class="tc-verified">Verified Purchase</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="tc-title">&ldquo;MUST have when on GLP-1&rdquo;</div>
+        <div class="tc-body">I started taking them when I began a GLP-1. While on vacation, I didn&rsquo;t take my Gr&uuml;ns regularly, and I could tell a major difference in digestive regularity!</div>
+        <div class="tc-author">Emily</div>
+        <div class="tc-verified">Verified Purchase</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="tc-title">&ldquo;Best addition to a GLP-1&rdquo;</div>
+        <div class="tc-body">Been the best product ever!! I love that they help get in all my vitamins, minerals, veggies, and greens while on a GLP-1. Also, AMAZING for my gut!!</div>
+        <div class="tc-author">Lauren</div>
+        <div class="tc-verified">Verified Purchase</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="tc-title">&ldquo;Helped with energy and side effects&rdquo;</div>
+        <div class="tc-body">The hype is real. I am on a GLP-1 medicine and it has helped me with energy and some of the side effects I was having. Amazing product worth the money.</div>
+        <div class="tc-author">Laura</div>
+        <div class="tc-verified">Verified Purchase</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="tc-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="tc-title">&ldquo;Helped me smooth out my GLP-1 journey&rdquo;</div>
+        <div class="tc-body">I was skeptical. But between the taste, the list of ingredients, and the very positive effect Gr&uuml;ns has had on my digestion, I am pleasantly convinced!</div>
+        <div class="tc-author">Michael</div>
+        <div class="tc-verified">Verified Purchase</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS SECTION -->
+  <section class="reviews-section">
+    <div class="reviews-container">
+      <div class="reviews-tabs">
+        <button class="active">Product reviews</button>
+        <button>Store reviews</button>
+      </div>
+
+      <div class="reviews-summary">
+        <div class="reviews-score">
+          <div class="score-number">4.78</div>
+          <div class="score-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="score-count">90,876 reviews</div>
+        </div>
+        <div class="reviews-bars">
+          <div class="bar-row">
+            <span class="bar-label">5</span>
+            <div class="bar-track"><div class="bar-fill" style="width:82%"></div></div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">4</span>
+            <div class="bar-track"><div class="bar-fill" style="width:12%"></div></div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">3</span>
+            <div class="bar-track"><div class="bar-fill" style="width:3%"></div></div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">2</span>
+            <div class="bar-track"><div class="bar-fill" style="width:2%"></div></div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">1</span>
+            <div class="bar-track"><div class="bar-fill" style="width:1%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sample reviews -->
+      <div class="review-card">
+        <div class="review-card-header">
+          <div class="reviewer">
+            <div class="reviewer-avatar">AP</div>
+            <div>
+              <div class="reviewer-name">Amy P.</div>
+              <div class="reviewer-badge">&#9989; Verified buyer</div>
+            </div>
+          </div>
+          <span class="review-date">37 minutes ago</span>
+        </div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-title">After 5 days, promises...</div>
+        <div class="review-body">After 5 days, promises made, promises kept. My gut feels so much better!</div>
+        <div class="review-meta">Review for Gr&uuml;ns &ndash; Low Sugar / 28 Packs &bull; &#10084;&#65039; Would recommend</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-header">
+          <div class="reviewer">
+            <div class="reviewer-avatar">ST</div>
+            <div>
+              <div class="reviewer-name">Stacey T.</div>
+              <div class="reviewer-badge">&#9989; Verified buyer</div>
+            </div>
+          </div>
+          <span class="review-date">40 minutes ago</span>
+        </div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-title">The Best Gummies!</div>
+        <div class="review-body">I look forward to taking my Gruns every morning!! They help me to start my day off right!</div>
+        <div class="review-meta">Review for Gr&uuml;ns &ndash; Low Sugar / 28 Packs &bull; &#10084;&#65039; Would recommend</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-card-header">
+          <div class="reviewer">
+            <div class="reviewer-avatar">JB</div>
+            <div>
+              <div class="reviewer-name">JoEllen B.</div>
+              <div class="reviewer-badge">&#9989; Verified buyer</div>
+            </div>
+          </div>
+          <span class="review-date">2 hours ago</span>
+        </div>
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <div class="review-title">Thank you Gr&uuml;ns &#10084;&#65039;</div>
+        <div class="review-body">For a person who has not been regular in decades.. this absolutely gently works! No more bloating and cramping. Great taste. Fantastic supplement.</div>
+        <div class="review-meta">Review for Gr&uuml;ns &ndash; Low Sugar / 28 Packs &bull; &#10084;&#65039; Would recommend</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-logo">gr&uuml;ns</div>
+    <p>&copy; 2026 Gr&uuml;ns. All rights reserved.<br>These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease.</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Sticky nav on scroll
+    const stickyNav = document.getElementById('stickyNav');
+    const heroSection = document.querySelector('.hero');
+
+    const observer = new IntersectionObserver(([entry]) => {
+      stickyNav.classList.toggle('visible', !entry.isIntersecting);
+    }, { threshold: 0 });
+
+    observer.observe(heroSection);
+
+    // Countdown timer
+    function startCountdown() {
+      // Set end time to ~13 hours from now for demo
+      const endTime = new Date().getTime() + (13 * 60 * 60 * 1000) + (10 * 60 * 1000);
+
+      function update() {
+        const now = new Date().getTime();
+        const diff = Math.max(0, endTime - now);
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const d = String(days).padStart(2, '0');
+        const h = String(hours).padStart(2, '0');
+        const m = String(mins).padStart(2, '0');
+        const s = String(secs).padStart(2, '0');
+
+        document.getElementById('cd-d1').textContent = d[0];
+        document.getElementById('cd-d2').textContent = d[1];
+        document.getElementById('cd-h1').textContent = h[0];
+        document.getElementById('cd-h2').textContent = h[1];
+        document.getElementById('cd-m1').textContent = m[0];
+        document.getElementById('cd-m2').textContent = m[1];
+        document.getElementById('cd-s1').textContent = s[0];
+        document.getElementById('cd-s2').textContent = s[1];
+      }
+
+      update();
+      setInterval(update, 1000);
+    }
+
+    startCountdown();
+
+    // Plan card selection
+    document.querySelectorAll('.plan-card').forEach(card => {
+      card.addEventListener('click', function() {
+        this.closest('.buybox-config')?.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+      });
+    });
+  </script>
+</body>
+</html>
