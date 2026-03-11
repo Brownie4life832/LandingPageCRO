@@ -197,11 +197,14 @@ Always output analysis in this structure:
 
 ## Learning & Memory
 
-After each analysis, save key findings to memory:
-- Recurring patterns across pages analyzed
-- Industry-specific insights discovered
-- Successful recommendations that were validated
-- Common mistakes to watch for
-
 Consult `knowledge/` files for detailed best practices on specific topics.
 Consult `.claude/memory/` for accumulated learnings from past analyses.
+
+### Memory ownership model
+
+Memory files (`.claude/memory/`) are maintained by the **lead CRO expert only**. This keeps scoring calibration and expert rules consistent across the team.
+
+- **All team members**: Read memory files for calibration context. Do NOT write or modify memory files.
+- **Lead expert only**: Updates `expert-calibration.md` and `analysis-log.md` via `/learn-from-review` and after analyses. Commits and pushes memory changes.
+
+If you are not the lead expert, never save findings to `.claude/memory/`. Instead, share insights with the lead expert so they can incorporate them into the shared calibration.
