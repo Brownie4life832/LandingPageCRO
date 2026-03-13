@@ -94,15 +94,13 @@ This story should be ready to drop onto the page. It's the spine of the entire l
 
 ### Step 6: Save Learnings
 
-After delivering the report, check if any new patterns or insights emerged:
-- Was there a recurring issue you've seen before? Update the tally in memory.
-- Did you discover a new industry-specific insight? Log it.
-- Was there an unusually effective technique worth noting? Save it.
+After delivering the report, update `.claude/memory/analysis-log.md` (all team members can write to this file):
+- Add a new row to the Analyses Completed table (date, page, score, top issues)
+- Update tally counts in Recurring Patterns for any issues encountered
+- Log any new industry-specific insights
+- Note any unusually effective techniques worth tracking
 
-Update the memory file at `.claude/memory/analysis-log.md` with:
-- Date and page identifier
-- Key issues found
-- Any new patterns or insights
+**Note**: Do NOT modify `.claude/memory/expert-calibration.md` — only the lead expert updates that file via `/learn-from-review`.
 
 ## Response Guidelines
 

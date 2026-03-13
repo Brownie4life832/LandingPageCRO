@@ -7,6 +7,38 @@
     "learn-from-review": {
       "description": "Feed in your expert CRO review (video transcript, notes, or annotated screenshots) so the agent learns your analysis style and insights.",
       "path": ".claude/skills/learn-from-review.md"
+    },
+    "competitor-teardown": {
+      "description": "Compare your landing page against a competitor's. Head-to-head across 8 persuasion dimensions with a steal list and winning copy.",
+      "path": ".claude/skills/competitor-teardown.md"
+    },
+    "audience-rewrite": {
+      "description": "Rewrite a landing page's copy for a specific audience persona. Same product, different story.",
+      "path": ".claude/skills/audience-rewrite.md"
+    },
+    "before-after": {
+      "description": "Re-analyze a page after changes. Shows score movement, tracks recommendations acted on, flags regressions.",
+      "path": ".claude/skills/before-after.md"
+    },
+    "build-lp": {
+      "description": "Build a high-converting landing page from scratch with structured intake, strategy brief, and mobile-first code.",
+      "path": ".claude/skills/build-lp.md"
+    },
+    "clone-lp": {
+      "description": "Replicate an existing landing page as a faithful HTML/CSS reproduction. Extracts design system, maps sections, builds pixel-accurate replica.",
+      "path": ".claude/skills/clone-lp.md"
+    },
+    "reskin-lp": {
+      "description": "Rebuild your product's landing page in the style of another brand's page. Reference structure + your product's improved story.",
+      "path": ".claude/skills/reskin-lp.md"
+    },
+    "learn-from-page": {
+      "description": "Analyze an exemplary landing page and extract reusable CRO patterns into the swipe file.",
+      "path": ".claude/skills/learn-from-page.md"
+    },
+    "export-report": {
+      "description": "Export the latest CRO analysis report as a standalone HTML or Markdown file for sharing with the team.",
+      "path": ".claude/skills/export-report.md"
     }
   }
 }

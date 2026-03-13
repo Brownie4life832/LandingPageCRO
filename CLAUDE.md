@@ -202,9 +202,9 @@ Consult `.claude/memory/` for accumulated learnings from past analyses.
 
 ### Memory ownership model
 
-Memory files (`.claude/memory/`) are maintained by the **lead CRO expert only**. This keeps scoring calibration and expert rules consistent across the team.
+Memory files (`.claude/memory/`) are shared team resources with specific write permissions:
 
-- **All team members**: Read memory files for calibration context. Do NOT write or modify memory files.
-- **Lead expert only**: Updates `expert-calibration.md` and `analysis-log.md` via `/learn-from-review` and after analyses. Commits and pushes memory changes.
+- **All team members**: Read all memory files for calibration context. Can write to `analysis-log.md` after running analyses (new entries, pattern tallies, effective techniques spotted).
+- **Lead expert only**: Updates `expert-calibration.md` via `/learn-from-review`. Expert calibration rules, scoring tendencies, and preferences are controlled exclusively by the lead expert to maintain consistency.
 
-If you are not the lead expert, never save findings to `.claude/memory/`. Instead, share insights with the lead expert so they can incorporate them into the shared calibration.
+If you are not the lead expert, never modify `expert-calibration.md`. Share calibration insights with the lead expert so they can incorporate them.

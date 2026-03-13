@@ -10,55 +10,128 @@ The user provides a URL to a live landing page.
 
 Before looking at layout or content, extract the actual design tokens from the live page. This prevents guessing at colors and fonts later.
 
-Run this JavaScript on the page via the browser tools:
+Run this JavaScript on the page via the browser tools. The script samples all visible elements (not just semantic tags) to handle modern frameworks, custom components, and non-standard markup:
 
 ```js
 (function() {
   const body = getComputedStyle(document.body);
-  const h1 = document.querySelector('h1');
-  const h2 = document.querySelector('h2');
-  const btn = document.querySelector('a[href], button');
-  const nav = document.querySelector('nav, header');
-
-  // Collect all unique background colors and text colors from key elements
-  const elements = document.querySelectorAll('h1, h2, h3, p, a, button, section, header, footer, nav, [class*="hero"], [class*="cta"], [class*="banner"]');
   const colors = new Set();
   const bgColors = new Set();
   const fonts = new Set();
+  const fontSizes = [];
+  const borderRadii = new Set();
 
-  elements.forEach(el => {
-    const s = getComputedStyle(el);
-    if (s.color && s.color !== 'rgb(0, 0, 0)') colors.add(s.color);
-    if (s.backgroundColor && s.backgroundColor !== 'rgba(0, 0, 0, 0)' && s.backgroundColor !== 'rgb(255, 255, 255)') bgColors.add(s.backgroundColor);
-    if (s.fontFamily) fonts.add(s.fontFamily.split(',')[0].trim().replace(/['"]/g, ''));
+  // Sample ALL visible elements — catches framework components, not just semantic HTML
+  const allElements = document.querySelectorAll('*');
+  const sampled = [];
+  allElements.forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.width > 0 && rect.height > 0 && rect.top < window.innerHeight * 5) {
+      sampled.push(el);
+    }
   });
+
+  const toScan = sampled.slice(0, 500);
+
+  toScan.forEach(el => {
+    const s = getComputedStyle(el);
+    const c = s.color;
+    const bg = s.backgroundColor;
+    const ff = s.fontFamily;
+    const fs = s.fontSize;
+    const br = s.borderRadius;
+
+    if (c && c !== 'rgb(0, 0, 0)' && c !== 'rgba(0, 0, 0, 0)') colors.add(c);
+    if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'rgb(255, 255, 255)') bgColors.add(bg);
+    if (ff) fonts.add(ff.split(',')[0].trim().replace(/['"]/g, ''));
+    if (fs) fontSizes.push(parseFloat(fs));
+    if (br && br !== '0px') borderRadii.add(br);
+  });
+
+  // Find heading-like elements (semantic + role + class-based)
+  const headingCandidates = [];
+  document.querySelectorAll('h1, h2, h3, [role="heading"], [class*="heading"], [class*="title"], [class*="headline"]').forEach(el => {
+    const s = getComputedStyle(el);
+    headingCandidates.push({
+      tag: el.tagName.toLowerCase(),
+      text: el.textContent.trim().substring(0, 80),
+      font: s.fontFamily.split(',')[0].trim().replace(/['"]/g, ''),
+      size: s.fontSize,
+      weight: s.fontWeight,
+      color: s.color,
+      lineHeight: s.lineHeight,
+      letterSpacing: s.letterSpacing
+    });
+  });
+
+  // Find CTA buttons (semantic + visual: high-contrast bg, clickable)
+  const ctaCandidates = [];
+  document.querySelectorAll('button, a[href], [role="button"], [class*="btn"], [class*="cta"], [class*="button"], input[type="submit"]').forEach(el => {
+    const s = getComputedStyle(el);
+    const bg = s.backgroundColor;
+    if (bg && bg !== 'rgba(0, 0, 0, 0)' && bg !== 'rgb(255, 255, 255)') {
+      ctaCandidates.push({
+        text: el.textContent.trim().substring(0, 40),
+        bg: bg,
+        color: s.color,
+        borderRadius: s.borderRadius,
+        padding: s.padding,
+        fontSize: s.fontSize,
+        fontWeight: s.fontWeight
+      });
+    }
+  });
+
+  // Detect loaded web fonts
+  const loadedFonts = [];
+  if (document.fonts) {
+    document.fonts.forEach(f => {
+      loadedFonts.push(f.family.replace(/['"]/g, ''));
+    });
+  }
+
+  // Detect font stylesheets (Google Fonts, Adobe Fonts, etc.)
+  const fontLinks = [];
+  document.querySelectorAll('link[href*="fonts.googleapis"], link[href*="use.typekit"], link[href*="fonts.adobe"]').forEach(l => {
+    fontLinks.push(l.href);
+  });
+
+  const uniqueSizes = [...new Set(fontSizes.map(s => Math.round(s)))].sort((a, b) => b - a);
 
   return JSON.stringify({
     bodyFont: body.fontFamily,
     bodyColor: body.color,
     bodyBg: body.backgroundColor,
-    h1Font: h1 ? getComputedStyle(h1).fontFamily : null,
-    h1Size: h1 ? getComputedStyle(h1).fontSize : null,
-    h1Weight: h1 ? getComputedStyle(h1).fontWeight : null,
-    h2Font: h2 ? getComputedStyle(h2).fontFamily : null,
-    h2Size: h2 ? getComputedStyle(h2).fontSize : null,
-    uniqueColors: [...colors].slice(0, 10),
-    uniqueBgColors: [...bgColors].slice(0, 10),
-    uniqueFonts: [...fonts].slice(0, 5),
+    bodyLineHeight: body.lineHeight,
+    headings: headingCandidates.slice(0, 6),
+    ctaButtons: ctaCandidates.slice(0, 5),
+    uniqueColors: [...colors].slice(0, 15),
+    uniqueBgColors: [...bgColors].slice(0, 15),
+    uniqueFonts: [...fonts].slice(0, 8),
+    loadedWebFonts: [...new Set(loadedFonts)].slice(0, 10),
+    fontStylesheetURLs: fontLinks,
+    fontSizeScale: uniqueSizes.slice(0, 10),
+    borderRadiusValues: [...borderRadii].slice(0, 5),
   }, null, 2);
 })()
 ```
 
-Record the output as the **Design Tokens** for the build. Convert rgb values to hex. Identify:
-- **Primary color** (used on CTAs and key elements)
-- **Secondary color** (accents, badges)
-- **Text colors** (headings, body, muted)
-- **Background colors** (sections, cards)
-- **Display font** (headlines)
-- **Body font** (paragraphs, UI)
-- **Font sizes** (h1, h2, body — note the scale)
+**If the script returns sparse results** (shadow DOM, iframes, or heavily JS-rendered pages), fall back to:
+1. Use the browser inspector to manually inspect 3-4 key elements (headline, CTA, body text, section background)
+2. Check the `<head>` for Google Fonts / Typekit / Adobe Fonts links
+3. Use screenshots + color picker for colors if computed styles aren't accessible
 
-Load the correct Google Fonts (or system fonts) before writing any CSS.
+Record the output as the **Design Tokens** for the build. Convert rgb values to hex. Identify:
+- **Primary color** (used on CTAs and key elements — check `ctaButtons` array)
+- **Secondary color** (accents, badges)
+- **Text colors** (headings, body, muted — check `headings` array)
+- **Background colors** (sections, cards)
+- **Display font** (headlines — check `headings[0].font` and `loadedWebFonts`)
+- **Body font** (paragraphs, UI — check `bodyFont`)
+- **Font size scale** (from `fontSizeScale` — gives the full type ramp)
+- **Border radius** (from `borderRadiusValues` — critical for card/button feel)
+
+Load the correct web fonts from `fontStylesheetURLs` (or use system fonts) before writing any CSS.
 
 ## Phase 2: Capture the Full Page
 
