@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livmore Stepper — Stay Active Without Leaving Your Seat</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-dark:  #1a4731;
+      --green-mid:   #2d7a4f;
+      --green-light: #4caf7d;
+      --cream:       #faf8f2;
+      --cream-dark:  #f0ede4;
+      --text-dark:   #1a1a1a;
+      --text-mid:    #444;
+      --text-light:  #777;
+      --gold:        #d4a017;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #fff;
+      color: var(--text-dark);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'DM Serif Display', serif;
+      line-height: 1.15;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announcement-bar {
+      background: var(--green-dark);
+      color: #fff8e7;
+      text-align: center;
+      padding: 10px 20px 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .announcement-bar .timer-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 5px;
+    }
+    .timer-unit {
+      background: rgba(255,255,255,0.18);
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-size: 17px;
+      font-weight: 700;
+      min-width: 38px;
+      text-align: center;
+    }
+    .timer-sep { font-size: 17px; font-weight: 700; }
+
+    /* ── HEADER ── */
+    .header {
+      background: #fff;
+      border-bottom: 1px solid #e8e4d9;
+      padding: 15px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      color: var(--green-dark);
+      letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--green-mid); }
+
+    /* ── HERO ── */
+    .hero { background: var(--cream); padding: 48px 24px 0; }
+
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      padding-bottom: 48px;
+    }
+
+    /* image side */
+    .hero-img-wrap { position: relative; }
+    .hero-img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 14px;
+      object-fit: cover;
+      display: block;
+      background: #c5d9ce;
+    }
+    .hero-bubble {
+      position: absolute;
+      background: #fff;
+      border-radius: 10px;
+      padding: 12px 16px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.13);
+      font-size: 14px;
+      max-width: 210px;
+      line-height: 1.45;
+    }
+    .hero-bubble::before {
+      content: '★';
+      color: #f5a623;
+      font-size: 12px;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .hero-bubble strong { color: var(--green-dark); }
+    .bubble-1 { top: 14%; left: -36px; }
+    .bubble-2 { bottom: 22%; right: -28px; }
+    .clinician-badge {
+      position: absolute;
+      bottom: 16px;
+      left: 16px;
+      background: rgba(255,255,255,0.96);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    /* copy side */
+    .hero-copy {}
+    .sale-badge {
+      display: inline-block;
+      background: #fff3cd;
+      border: 1px solid var(--gold);
+      color: #7a5c00;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 4px;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+    .hero-headline {
+      font-size: clamp(30px, 4.5vw, 50px);
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .hero-headline span { color: var(--green-mid); }
+    .hero-subhead {
+      font-size: 17px;
+      color: var(--text-mid);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+    .stars-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .stars { color: #f5a623; font-size: 20px; letter-spacing: 2px; }
+    .stars-label { font-size: 14px; color: var(--text-mid); }
+    .stars-label strong { color: var(--text-dark); }
+
+    .color-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+    }
+    .color-swatches { display: flex; gap: 10px; margin-bottom: 22px; }
+    .swatch {
+      width: 50px;
+      height: 50px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .swatch.active { border-color: var(--green-dark); outline: 2px solid var(--green-dark); outline-offset: 2px; }
+    .swatch-white { background: #d6d2cb; }
+    .swatch-black { background: #2c2c2c; }
+
+    .price-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .price-now {
+      font-family: 'DM Serif Display', serif;
+      font-size: 38px;
+      color: var(--green-dark);
+    }
+    .price-was {
+      font-size: 20px;
+      color: var(--text-light);
+      text-decoration: line-through;
+    }
+    .price-tag {
+      background: var(--green-mid);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 20px;
+    }
+
+    .cta-btn {
+      display: block;
+      width: 100%;
+      background: var(--green-dark);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      padding: 19px 32px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      letter-spacing: 0.5px;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 5px 5px 0 #0d2e1c;
+      margin-bottom: 12px;
+    }
+    .cta-btn:hover { background: #0f2d1f; box-shadow: 2px 2px 0 #0d2e1c; }
+
+    .cta-note {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .trust-mini {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .trust-mini-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-mid);
+      font-weight: 600;
+    }
+    .trust-mini-item .ico { font-size: 15px; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: #fff;
+      border-top: 1px solid #e8e4d9;
+      border-bottom: 1px solid #e8e4d9;
+      padding: 20px 24px;
+    }
+    .trust-bar-inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .trust-item { display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center; }
+    .trust-icon { font-size: 26px; }
+    .trust-item-lbl { font-size: 12px; font-weight: 700; color: var(--text-dark); }
+    .trust-item-sub { font-size: 11px; color: var(--text-light); }
+
+    /* ── BENEFITS INTRO ── */
+    .benefits-intro {
+      padding: 64px 24px 24px;
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green-mid);
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      margin-bottom: 12px;
+    }
+    .section-hl {
+      font-size: clamp(26px, 3.5vw, 42px);
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 18px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ── BENEFIT ROW ── */
+    .benefit-section { padding: 20px 0; }
+    .benefit-section.alt { background: var(--cream); }
+
+    .benefit-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 56px 24px;
+    }
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    /* Even sections: reverse column order so image comes first */
+    .benefit-section:nth-child(even) .benefit-grid { direction: rtl; }
+    .benefit-section:nth-child(even) .benefit-grid > * { direction: ltr; }
+
+    .benefit-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .b-category {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--green-mid);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border-bottom: 2px solid var(--green-mid);
+      padding-bottom: 2px;
+    }
+    .b-number { font-size: 12px; font-weight: 600; color: var(--text-light); }
+    .benefit-hl {
+      font-size: clamp(28px, 3.2vw, 42px);
+      color: var(--text-dark);
+      margin-bottom: 16px;
+    }
+    .benefit-body { font-size: 17px; color: var(--text-mid); line-height: 1.85; }
+
+    /* image grids */
+    .img-grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .img-grid-2x2 .g-img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 8px;
+      background: #c5d9ce;
+      display: block;
+    }
+    .img-grid-2x2 .g-img.tall {
+      grid-row: span 2;
+      aspect-ratio: auto;
+      min-height: 240px;
+    }
+    .img-single {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 12px;
+      object-fit: cover;
+      background: #c5d9ce;
+      display: block;
+    }
+
+    /* ── STATS ── */
+    .stats-section {
+      background: var(--green-dark);
+      color: #fff;
+      padding: 72px 24px;
+      text-align: center;
+    }
+    .stats-hl { font-size: clamp(22px, 2.8vw, 34px); color: #fff; margin-bottom: 8px; }
+    .stats-sub { font-size: 15px; color: rgba(255,255,255,0.7); margin-bottom: 52px; }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .stat-number {
+      font-family: 'DM Serif Display', serif;
+      font-size: 54px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .stat-desc { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.55; }
+    .stats-footnote {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      margin-top: 36px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ── BUY BOX ── */
+    .buybox-section {
+      padding: 80px 24px;
+      background: var(--cream);
+    }
+    .buybox-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      padding: 44px 40px;
+      box-shadow: 0 4px 40px rgba(0,0,0,0.09);
+    }
+    .buybox-hl { font-size: clamp(24px, 3vw, 34px); text-align: center; margin-bottom: 8px; }
+    .buybox-sub { text-align: center; font-size: 16px; color: var(--text-mid); margin-bottom: 32px; }
+
+    .purchase-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--cream-dark);
+      border-radius: 50px;
+      padding: 4px;
+      margin-bottom: 28px;
+    }
+    .toggle-opt {
+      padding: 13px 16px;
+      border-radius: 50px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-mid);
+      position: relative;
+      transition: all 0.2s;
+      user-select: none;
+    }
+    .toggle-opt.active { background: var(--green-dark); color: #fff; }
+    .toggle-tag {
+      position: absolute;
+      top: -9px;
+      right: 2px;
+      background: var(--green-light);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 10px;
+    }
+
+    .buybox-price-row { text-align: center; margin-bottom: 8px; }
+    .bb-price-now {
+      font-family: 'DM Serif Display', serif;
+      font-size: 52px;
+      color: var(--green-dark);
+    }
+    .bb-price-was { font-size: 22px; color: var(--text-light); text-decoration: line-through; margin-left: 8px; }
+    .bb-perday { font-size: 14px; color: var(--text-mid); margin-top: 4px; margin-bottom: 24px; text-align: center; }
+
+    .buybox-perks { list-style: none; margin-bottom: 28px; }
+    .buybox-perks li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: var(--text-mid);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+    .check { color: var(--green-mid); font-weight: 700; font-size: 16px; }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials-section { padding: 80px 24px; background: #fff; }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1020px;
+      margin: 44px auto 0;
+    }
+    .testimonial-card {
+      background: var(--cream);
+      border-radius: 12px;
+      padding: 28px;
+    }
+    .t-stars { color: #f5a623; font-size: 14px; letter-spacing: 2px; margin-bottom: 12px; }
+    .t-quote-hl {
+      font-family: 'DM Serif Display', serif;
+      font-size: 21px;
+      color: var(--text-dark);
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+    .t-quote-hl::before {
+      content: '"';
+      color: var(--green-mid);
+      font-size: 38px;
+      line-height: 0.8;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .t-body { font-size: 15px; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+    .t-author { display: flex; align-items: center; gap: 12px; }
+    .t-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--green-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+    .t-name { font-size: 14px; font-weight: 700; color: var(--text-dark); }
+    .t-verified { font-size: 12px; color: var(--green-mid); font-weight: 600; }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 80px 24px; background: var(--cream); }
+    .faq-list { max-width: 700px; margin: 44px auto 0; }
+    .faq-item { border-bottom: 1px solid #d9d4c8; }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-dark);
+      gap: 20px;
+    }
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid var(--green-dark);
+      color: var(--green-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      transition: transform 0.25s, background 0.25s, color 0.25s;
+      line-height: 1;
+    }
+    .faq-item.open .faq-icon { background: var(--green-dark); color: #fff; transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      transition: max-height 0.35s ease, padding 0.2s;
+    }
+    .faq-item.open .faq-a { max-height: 400px; padding-bottom: 20px; }
+
+    /* ── FINAL CTA ── */
+    .final-cta {
+      background: var(--green-dark);
+      color: #fff;
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .final-cta h2 { font-size: clamp(28px, 4vw, 48px); color: #fff; margin-bottom: 16px; }
+    .final-cta p { font-size: 18px; color: rgba(255,255,255,0.78); max-width: 500px; margin: 0 auto 32px; line-height: 1.7; }
+    .cta-btn-inv {
+      display: inline-block;
+      background: #fff8e7;
+      color: var(--green-dark);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      padding: 19px 56px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.22);
+      transition: background 0.2s;
+      max-width: 440px;
+      width: 100%;
+    }
+    .cta-btn-inv:hover { background: #fff; }
+
+    /* ── FOOTER ── */
+    .footer-trust {
+      background: #fff;
+      border-top: 1px solid #e8e4d9;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .footer-badges {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+    .footer-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--text-mid);
+      font-weight: 600;
+    }
+    .footer-badge .fi { font-size: 16px; }
+    .footer-legal {
+      font-size: 12px;
+      color: var(--text-light);
+      max-width: 720px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 800px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .hero-img-wrap { order: 0; margin-bottom: 32px; }
+      .hero-copy { order: 1; }
+      .bubble-1 { display: none; }
+      .bubble-2 { right: 10px; bottom: 60px; }
+
+      .benefit-grid { grid-template-columns: 1fr; gap: 32px; direction: ltr !important; }
+      .benefit-section:nth-child(even) .img-grid-2x2,
+      .benefit-section:nth-child(even) .img-single { order: -1; }
+
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+      .stat-number { font-size: 42px; }
+
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .trust-bar-inner { gap: 20px; }
+      .buybox-card { padding: 28px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .img-grid-2x2 { grid-template-columns: 1fr; }
+      .img-grid-2x2 .g-img.tall { aspect-ratio: 4/3; min-height: 0; }
+      .purchase-toggle { grid-template-columns: 1fr; border-radius: 12px; }
+      .toggle-opt { border-radius: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════
+     ANNOUNCEMENT BAR
+════════════════════════════════════════ -->
+<div class="announcement-bar">
+  <div>🏃 Livmore Stepper — Final Days · Save up to 52% + Free Shipping on Your First Order</div>
+  <div class="timer-row">
+    <span class="timer-unit" id="t-h">00</span>
+    <span class="timer-sep">:</span>
+    <span class="timer-unit" id="t-m">00</span>
+    <span class="timer-sep">:</span>
+    <span class="timer-unit" id="t-s">00</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     HEADER
+════════════════════════════════════════ -->
+<header class="header">
+  <div class="logo">Livmore <span>Stepper</span></div>
+</header>
+
+<!-- ═══════════════════════════════════════
+     HERO
+════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+
+    <!-- Image column -->
+    <div class="hero-img-wrap">
+      <img class="hero-img"
+           src="../assets/stepper/optimized/allie-desk/7rv3091.jpg"
+           alt="Woman using Livmore Stepper while working at her desk">
+
+      <div class="hero-bubble bubble-1">
+        <strong>Zero fall risk.</strong> Pedal from any chair, completely safely.
+      </div>
+      <div class="hero-bubble bubble-2">
+        <strong>Fits under any desk.</strong> No standing up required.
+      </div>
+      <div class="clinician-badge">
+        🏥 Clinician Recommended &nbsp;·&nbsp; Low-Impact
+      </div>
+    </div>
+
+    <!-- Copy column -->
+    <div class="hero-copy">
+      <div class="sale-badge">Limited Time Sale — Up to 52% Off</div>
+
+      <h1 class="hero-headline">
+        5 benefits desk workers &amp; seniors love about the
+        <span>Livmore Stepper</span>
+      </h1>
+
+      <p class="hero-subhead">
+        Keep your legs moving, your blood pumping, and your posture strong —
+        without leaving your seat. The only workout designed for how you actually live.
+      </p>
+
+      <div class="stars-row">
+        <span class="stars">★★★★½</span>
+        <span class="stars-label"><strong>4.5 stars</strong> &nbsp;·&nbsp; Best in Comfort Fitness</span>
+      </div>
+
+      <div class="color-label">Select Color:</div>
+      <div class="color-swatches">
+        <div class="swatch swatch-white active" title="Platinum White" onclick="selectColor(this)"></div>
+        <div class="swatch swatch-black" title="Midnight Black" onclick="selectColor(this)"></div>
+      </div>
+
+      <div class="price-row">
+        <span class="price-now">$149.99</span>
+        <span class="price-was">$299.99</span>
+        <span class="price-tag">50% OFF</span>
+      </div>
+
+      <a href="#buybox" class="cta-btn">ORDER YOURS TODAY →</a>
+      <p class="cta-note">Use code <strong>WITHLOVE35</strong> at checkout for an extra 35% off</p>
+
+      <div class="trust-mini">
+        <div class="trust-mini-item"><span class="ico">🚚</span> Free Shipping</div>
+        <div class="trust-mini-item"><span class="ico">↩️</span> 30-Day Returns</div>
+        <div class="trust-mini-item"><span class="ico">🏅</span> BBB A+ Rated</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TRUST BAR
+════════════════════════════════════════ -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <span class="trust-icon">🚚</span>
+      <span class="trust-item-lbl">Free Shipping</span>
+      <span class="trust-item-sub">On all orders</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">↩️</span>
+      <span class="trust-item-lbl">30-Day Returns</span>
+      <span class="trust-item-sub">Risk-free trial</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">💲</span>
+      <span class="trust-item-lbl">Lowest Price</span>
+      <span class="trust-item-sub">Guaranteed</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🤝</span>
+      <span class="trust-item-lbl">18+ Years</span>
+      <span class="trust-item-sub">Trusted service</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-icon">🏅</span>
+      <span class="trust-item-lbl">BBB A+</span>
+      <span class="trust-item-sub">Accredited business</span>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     BENEFITS INTRO
+════════════════════════════════════════ -->
+<div class="benefits-intro">
+  <p class="eyebrow">Why it works</p>
+  <h2 class="section-hl">5 benefits desk workers &amp; seniors love about the Livmore Stepper</h2>
+  <p class="section-sub">On your feet all day? No. In your chair all day? Yes. Here's why the stepper is life-changing for you.</p>
+</div>
+
+<!-- ═══════════════════════════════════════
+     BENEFIT 01 · CIRCULATION
+════════════════════════════════════════ -->
+<div class="benefit-section">
+  <div class="benefit-inner">
+    <div class="benefit-grid">
+      <div class="benefit-copy">
+        <div class="benefit-meta">
+          <span class="b-category">Circulation</span>
+          <span class="b-number">01</span>
+        </div>
+        <h2 class="benefit-hl">Better blood flow.<br>Less swelling.</h2>
+        <p class="benefit-body">
+          Sitting for hours causes blood to pool in your legs. That's why your
+          ankles swell and your feet tingle by afternoon.<br><br>
+          The stepper's gentle pedaling activates your calf muscles — the body's
+          natural pump — moving blood back up to your heart where it belongs.
+          Six minutes. That's all it takes to feel the difference.
+        </p>
+      </div>
+      <div class="img-grid-2x2">
+        <img class="g-img tall"
+             src="../assets/stepper/optimized/7rv3273.jpg"
+             alt="Woman smiling while using Livmore Stepper on couch">
+        <img class="g-img"
+             src="../assets/stepper/optimized/allie-exercise/7rv3252.jpg"
+             alt="Active woman doing lunges near stepper">
+        <img class="g-img"
+             src="../assets/stepper/optimized/7rv3304.jpg"
+             alt="Overhead view of feet on stepper with LED display">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     BENEFIT 02 · CALORIES
+════════════════════════════════════════ -->
+<div class="benefit-section alt">
+  <div class="benefit-inner">
+    <div class="benefit-grid">
+      <div class="img-grid-2x2">
+        <img class="g-img tall"
+             src="../assets/stepper/optimized/allie-desk/7rv3091.jpg"
+             alt="Woman working at desk with stepper under feet">
+        <img class="g-img"
+             src="../assets/stepper/optimized/allie-desk/7rv3113.jpg"
+             alt="Close-up of stepper fitting under desk with loafers">
+        <img class="g-img"
+             src="../assets/stepper/optimized/pdp-photos/8216120_6.jpg"
+             alt="Livmore Stepper LED display and control panel">
+      </div>
+      <div class="benefit-copy">
+        <div class="benefit-meta">
+          <span class="b-category">Calories</span>
+          <span class="b-number">02</span>
+        </div>
+        <h2 class="benefit-hl">Burn calories while you work.</h2>
+        <p class="benefit-body">
+          You don't need to choose between productivity and fitness. The stepper
+          runs at under 38dB — quieter than a whisper — so you can pedal through
+          meetings, emails, and Netflix while burning up to 150 calories per
+          hour.<br><br>
+          12 resistance levels. Start gentle. Build up. Your fitness adapts to
+          your schedule, not the other way around.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     BENEFIT 03 · STRENGTH
+════════════════════════════════════════ -->
+<div class="benefit-section">
+  <div class="benefit-inner">
+    <div class="benefit-grid">
+      <div class="benefit-copy">
+        <div class="benefit-meta">
+          <span class="b-category">Strength</span>
+          <span class="b-number">03</span>
+        </div>
+        <h2 class="benefit-hl">Stronger legs.<br>Better posture.</h2>
+        <p class="benefit-body">
+          Weak leg muscles are the silent cause of poor posture, back pain, and
+          the unsteadiness that makes people grip handrails. Regular pedaling
+          strengthens your quads, calves, and hip flexors — the muscles that hold
+          you upright and keep you stable.<br><br>
+          Build strength one step at a time. Without ever stepping foot in a gym.
+        </p>
+      </div>
+      <div class="img-grid-2x2">
+        <img class="g-img"
+             src="../assets/stepper/optimized/allie-desk/7rv3105.jpg"
+             alt="Woman leaning back satisfied after using stepper at desk">
+        <img class="g-img"
+             src="../assets/stepper/optimized/7rv3285.jpg"
+             alt="Woman on phone while using stepper on couch">
+        <img class="g-img"
+             src="../assets/stepper/optimized/senior/7rv3167.jpg"
+             style="grid-column: span 2; aspect-ratio: 2/1; object-fit: cover;"
+             alt="Senior woman using stepper while watching TV">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     BENEFIT 04 · SAFETY
+════════════════════════════════════════ -->
+<div class="benefit-section alt">
+  <div class="benefit-inner">
+    <div class="benefit-grid">
+      <div class="img-grid-2x2">
+        <img class="g-img tall"
+             src="../assets/stepper/optimized/senior/7rv3164.jpg"
+             alt="Senior woman safely using stepper while seated on couch">
+        <img class="g-img"
+             src="../assets/stepper/optimized/senior/7rv3200.jpg"
+             alt="Senior hands holding stepper remote control">
+        <img class="g-img"
+             src="../assets/stepper/optimized/pdp-photos/8216120_5.jpg"
+             alt="Close-up of anti-slip textured stepper pedal">
+      </div>
+      <div class="benefit-copy">
+        <div class="benefit-meta">
+          <span class="b-category">Safety</span>
+          <span class="b-number">04</span>
+        </div>
+        <h2 class="benefit-hl">Zero fall risk.<br>Zero excuses.</h2>
+        <p class="benefit-body">
+          Standing exercises are dangerous when balance is an issue. The stepper
+          eliminates that risk entirely — you're seated the whole time. Anti-slip
+          pedals hold your feet firm. The remote control lets you adjust resistance
+          without bending down.<br><br>
+          The safest workout you've ever done. And your family can breathe easy
+          knowing you're moving safely.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     BENEFIT 05 · SIMPLICITY
+════════════════════════════════════════ -->
+<div class="benefit-section">
+  <div class="benefit-inner">
+    <div class="benefit-grid">
+      <div class="benefit-copy">
+        <div class="benefit-meta">
+          <span class="b-category">Simplicity</span>
+          <span class="b-number">05</span>
+        </div>
+        <h2 class="benefit-hl">One daily habit.<br>No prep. No mess.</h2>
+        <p class="benefit-body">
+          Around 95% of gym memberships go unused. Not because people lack
+          discipline — because getting there is too hard. The stepper removes all
+          friction.<br><br>
+          Compact enough to slide under any desk or couch. Quiet enough for a
+          Zoom call. Remote-controlled so you never bend down. Just place your
+          feet and pedal. That's it.
+        </p>
+      </div>
+      <div class="img-grid-2x2">
+        <img class="g-img"
+             src="../assets/stepper/optimized/allie-desk/7rv3150.jpg"
+             alt="Stepper under desk in natural sunlight">
+        <img class="g-img"
+             src="../assets/stepper/optimized/pdp-photos/8216120_8.jpg"
+             alt="Livmore Stepper remote control">
+        <img class="g-img"
+             src="../assets/stepper/optimized/7rv3283.jpg"
+             style="grid-column: span 2; aspect-ratio: 2/1; object-fit: cover;"
+             alt="Woman drinking water while using stepper on couch">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     STATS BAR
+════════════════════════════════════════ -->
+<section class="stats-section">
+  <h2 class="stats-hl">Real users. Real results.</h2>
+  <p class="stats-sub">After 90 days with the Livmore Stepper, here's what our customers reported.*</p>
+  <div class="stats-grid">
+    <div>
+      <div class="stat-number">78%</div>
+      <p class="stat-desc">say their leg swelling reduced noticeably</p>
+    </div>
+    <div>
+      <div class="stat-number">71%</div>
+      <p class="stat-desc">say they feel more energized during the day</p>
+    </div>
+    <div>
+      <div class="stat-number">83%</div>
+      <p class="stat-desc">say it fits seamlessly into their daily routine</p>
+    </div>
+    <div>
+      <div class="stat-number">91%</div>
+      <p class="stat-desc">would recommend it to a friend or family member</p>
+    </div>
+  </div>
+  <p class="stats-footnote">*Post-purchase survey of 2,400+ verified customers who completed 90+ days of regular use. Individual results may vary.</p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BUY BOX
+════════════════════════════════════════ -->
+<section class="buybox-section" id="buybox">
+  <div class="buybox-card">
+    <h2 class="buybox-hl">Ready to start moving?</h2>
+    <p class="buybox-sub">Choose your option below. Ships within 24 hours.</p>
+
+    <div class="purchase-toggle">
+      <div class="toggle-opt" onclick="selectPurchase('onetime', this)">One-Time Purchase</div>
+      <div class="toggle-opt active" onclick="selectPurchase('bundle', this)">
+        Bundle &amp; Save
+        <span class="toggle-tag">BEST VALUE</span>
+      </div>
+    </div>
+
+    <div class="buybox-price-row">
+      <span class="bb-price-now" id="bb-price">$149.99</span>
+      <span class="bb-price-was" id="bb-orig">$299.99</span>
+    </div>
+    <p class="bb-perday" id="bb-pd">Only $0.41 per day over one year</p>
+
+    <ul class="buybox-perks">
+      <li><span class="check">✓</span> Free shipping — arrives in 2–4 business days</li>
+      <li><span class="check">✓</span> 30-day risk-free returns — no questions asked</li>
+      <li><span class="check">✓</span> 2-year warranty included</li>
+      <li><span class="check">✓</span> Remote control included in box</li>
+    </ul>
+
+    <a href="#" class="cta-btn">ORDER YOURS TODAY →</a>
+    <p class="cta-note">Use code <strong>WITHLOVE35</strong> for extra 35% off &nbsp;·&nbsp; Secure checkout</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIALS
+════════════════════════════════════════ -->
+<section class="testimonials-section">
+  <div style="max-width:1020px; margin:0 auto;">
+    <p class="eyebrow" style="text-align:center;">Real reviews from verified buyers</p>
+    <h2 class="section-hl" style="text-align:center;">What our customers are saying</h2>
+
+    <div class="testimonials-grid">
+
+      <div class="testimonial-card">
+        <div class="t-stars">★★★★★</div>
+        <h3 class="t-quote-hl">My legs stopped swelling after the first week</h3>
+        <p class="t-body">I sit at my desk for 9 hours a day and my ankles were always puffy by evening. Three weeks in, the difference is night and day. I barely notice the swelling anymore.</p>
+        <div class="t-author">
+          <div class="t-avatar">M</div>
+          <div>
+            <div class="t-name">Margaret T.</div>
+            <div class="t-verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="t-stars">★★★★★</div>
+        <h3 class="t-quote-hl">My doctor told me to buy a second one for the office</h3>
+        <p class="t-body">At 72, standing exercises aren't safe for me anymore. My doctor recommended seated exercise and this stepper is perfect. It's quiet, simple, and the remote means I never have to bend down.</p>
+        <div class="t-author">
+          <div class="t-avatar">R</div>
+          <div>
+            <div class="t-name">Robert K.</div>
+            <div class="t-verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="t-stars">★★★★★</div>
+        <h3 class="t-quote-hl">I burned 200 calories before lunch without leaving my chair</h3>
+        <p class="t-body">I work from home and was gaining weight from sitting all day. This stepper is the answer. It's so quiet I use it on Zoom calls. Down 8 pounds in 6 weeks without changing my diet.</p>
+        <div class="t-author">
+          <div class="t-avatar">S</div>
+          <div>
+            <div class="t-name">Sarah W.</div>
+            <div class="t-verified">✓ Verified Purchase</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FAQ
+════════════════════════════════════════ -->
+<section class="faq-section">
+  <div style="max-width:700px; margin:0 auto;">
+    <p class="eyebrow" style="text-align:center;">Questions &amp; Answers</p>
+    <h2 class="section-hl" style="text-align:center;">Everything you need to know</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item open">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Who is the Livmore Stepper designed for?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          The stepper was designed for anyone who spends long hours sitting — desk workers, remote employees,
+          retirees, seniors, and people recovering from injury who need low-impact movement. It's especially
+          popular with those who have poor circulation, swollen ankles, or limited mobility.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How quiet is it? Can I use it during calls?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Very quiet. The Livmore Stepper operates at approximately 38 decibels at moderate speed — quieter than
+          a whisper (40dB) and far below normal conversation (60dB). Most users can't hear it over ambient office
+          noise. It's specifically designed for silent use during calls, meetings, and TV time.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Will it fit under my desk?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          The stepper has a compact footprint of 18" × 14" and stands just 7" tall. It fits under the vast
+          majority of standard desks, dining chairs, sofas, and recliners. If your feet can reach it while
+          seated, it fits.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          I have balance issues. Is this safe for me?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Yes — that's exactly who this is designed for. Because you're seated the entire time, there is zero risk
+          of losing your balance or falling. Anti-slip pedals hold your feet securely. The remote control lets
+          you adjust resistance without ever bending down. Widely recommended by physiotherapists for rehabilitation
+          and maintenance.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What's in the box?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          Your Livmore Stepper ships with: the stepper unit, a wireless remote control, a power adapter, an LCD
+          display that tracks speed / time / calories / distance, and a user manual. Assembly takes about
+          2 minutes. No tools required.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FINAL CTA
+════════════════════════════════════════ -->
+<section class="final-cta">
+  <h2>Start moving. Stop suffering.</h2>
+  <p>Your legs deserve better than 8 hours of stillness. Order today and feel the difference by the end of the week.</p>
+  <a href="#buybox" class="cta-btn-inv">ORDER YOURS TODAY →</a>
+  <p style="margin-top:16px; font-size:14px; color:rgba(255,255,255,0.5);">
+    Free shipping &nbsp;·&nbsp; 30-day returns &nbsp;·&nbsp; Ships within 24 hours
+  </p>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="footer-trust">
+  <div class="footer-badges">
+    <div class="footer-badge"><span class="fi">🏅</span> BBB Accredited · A+</div>
+    <div class="footer-badge"><span class="fi">🔒</span> Secure Checkout</div>
+    <div class="footer-badge"><span class="fi">🚚</span> Free Shipping</div>
+    <div class="footer-badge"><span class="fi">↩️</span> 30-Day Returns</div>
+    <div class="footer-badge"><span class="fi">⭐</span> 18+ Years Trusted</div>
+  </div>
+  <p class="footer-legal">
+    © 2026 Livmore Stepper · Shop LC · 18+ years of trusted service ·
+    *Customer survey results based on 2,400+ verified purchasers completing 90+ days of regular use.
+    Individual results may vary. This product is not intended to diagnose, treat, cure, or prevent any disease.
+    Always consult your physician before starting a new exercise program.
+  </p>
+</footer>
+
+<script>
+  // ── Countdown Timer (counts to midnight)
+  function updateTimer() {
+    const now = new Date();
+    const midnight = new Date(now);
+    midnight.setHours(23, 59, 59, 999);
+    const diff = midnight - now;
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('t-h').textContent = String(h).padStart(2, '0');
+    document.getElementById('t-m').textContent = String(m).padStart(2, '0');
+    document.getElementById('t-s').textContent = String(s).padStart(2, '0');
+  }
+  updateTimer();
+  setInterval(updateTimer, 1000);
+
+  // ── FAQ Accordion
+  function toggleFaq(btn) {
+    btn.closest('.faq-item').classList.toggle('open');
+  }
+
+  // ── Purchase Toggle
+  function selectPurchase(type, el) {
+    document.querySelectorAll('.toggle-opt').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    if (type === 'bundle') {
+      document.getElementById('bb-price').textContent = '$149.99';
+      document.getElementById('bb-orig').textContent = '$299.99';
+      document.getElementById('bb-pd').textContent = 'Only $0.41 per day over one year';
+    } else {
+      document.getElementById('bb-price').textContent = '$174.99';
+      document.getElementById('bb-orig').textContent = '$299.99';
+      document.getElementById('bb-pd').textContent = '';
+    }
+  }
+
+  // ── Color Swatch Selector
+  document.querySelectorAll('.swatch').forEach(s => {
+    s.addEventListener('click', () => {
+      document.querySelectorAll('.swatch').forEach(x => x.classList.remove('active'));
+      s.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

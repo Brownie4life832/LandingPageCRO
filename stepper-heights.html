@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LIVMORE Motorized Stepper — Stay Active Without Leaving Your Favorite Chair</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --navy: #00026E;
+      --navy-dark: #000155;
+      --navy-light: rgba(0, 2, 110, 0.08);
+      --amber: #FFB12E;
+      --amber-dark: #E89E1A;
+      --cream: #FEFBF9;
+      --blue-light: #A6D1F6;
+      --blue-pale: #E8F2FC;
+      --gray-bg: #F7F7F7;
+      --white: #ffffff;
+      --text-dark: #0A0A2E;
+      --text-body: #3A3A5C;
+      --text-muted: #6E6E8A;
+      --sale-red: #D64045;
+      --font: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+
+    body {
+      font-family: var(--font);
+      color: var(--text-body);
+      line-height: 1.6;
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+
+    /* ===== PROMO BAR ===== */
+    .promo-bar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.9);
+      text-align: center;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .promo-bar .code {
+      color: var(--amber);
+      font-weight: 700;
+    }
+
+    /* ===== LOGO HEADER ===== */
+    .logo-header {
+      text-align: center;
+      padding: 18px 16px;
+      background: var(--white);
+      border-bottom: 1px solid rgba(0,2,110,0.06);
+    }
+
+    .logo-header .logo {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-header .logo-sub {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: -2px;
+    }
+
+    /* ===== STICKY NAV ===== */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,2,110,0.08);
+      padding: 10px 20px;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .sticky-nav.visible { display: flex; }
+
+    .sticky-nav .nav-logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .sticky-nav .nav-center {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .sticky-nav .nav-center .stars { color: var(--amber); }
+
+    .sticky-nav .nav-cta {
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 14px;
+      font-family: var(--font);
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .sticky-nav .nav-cta:hover { background: var(--navy-dark); }
+
+    @media (min-width: 768px) {
+      .sticky-nav .nav-center { display: flex; }
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      background: linear-gradient(180deg, var(--blue-pale) 0%, var(--cream) 100%);
+      padding: 32px 20px 48px;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-image {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-proof-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .hero-proof-badge .stars {
+      color: var(--amber);
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    .hero-content h1 {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1.12;
+      color: var(--navy);
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--text-body);
+      line-height: 1.65;
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--navy);
+      color: var(--white);
+      padding: 16px 36px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: var(--font);
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--navy-dark); transform: translateY(-1px); }
+
+    .btn-primary .arrow { font-size: 18px; transition: transform 0.2s; }
+    .btn-primary:hover .arrow { transform: translateX(3px); }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--navy);
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 16px;
+      font-family: var(--font);
+      text-decoration: none;
+      border: 2px solid var(--navy);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .btn-outline:hover { background: var(--navy); color: var(--white); }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    .hero-trust span::before {
+      content: '✓ ';
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    @media (min-width: 768px) {
+      .hero { padding: 48px 40px 64px; }
+      .hero-inner { grid-template-columns: 1fr 1fr; gap: 48px; }
+      .hero-content { order: -1; }
+      .hero-content h1 { font-size: 44px; }
+    }
+
+    @media (min-width: 1024px) {
+      .hero-content h1 { font-size: 52px; }
+    }
+
+    /* ===== PROBLEM AGITATION ===== */
+    .problem-section {
+      padding: 64px 20px;
+      background: var(--white);
+    }
+
+    .problem-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-eyebrow {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 12px;
+      opacity: 0.6;
+    }
+
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.15;
+      letter-spacing: -0.3px;
+    }
+
+    .problem-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .problem-card {
+      padding: 32px 24px;
+      border-radius: 16px;
+      background: var(--gray-bg);
+    }
+
+    .problem-number {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--navy);
+      opacity: 0.1;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .problem-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .problem-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    @media (min-width: 768px) {
+      .problem-section { padding: 80px 40px; }
+      .problem-grid { grid-template-columns: repeat(3, 1fr); gap: 24px; }
+      .section-title { font-size: 40px; }
+    }
+
+    /* ===== PAIN AMPLIFICATION ===== */
+    .pain-section {
+      padding: 64px 20px;
+      background: var(--cream);
+    }
+
+    .pain-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .pain-image {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .pain-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .pain-text h2 {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 20px;
+      letter-spacing: -0.3px;
+    }
+
+    .pain-text p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-body);
+      margin-bottom: 28px;
+      max-width: 520px;
+    }
+
+    .pain-text p:last-of-type {
+      margin-bottom: 28px;
+    }
+
+    @media (min-width: 768px) {
+      .pain-section { padding: 80px 40px; }
+      .pain-inner { grid-template-columns: 1fr 1fr; gap: 56px; }
+      .pain-text h2 { font-size: 38px; }
+    }
+
+    /* ===== PRODUCT INTRO ===== */
+    .product-section {
+      padding: 64px 20px;
+      background: var(--gray-bg);
+    }
+
+    .product-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .product-image {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-text h2 {
+      font-size: 30px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .product-text p {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--text-body);
+      margin-bottom: 24px;
+      max-width: 520px;
+    }
+
+    .feature-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .feature-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border: 1px solid rgba(0,2,110,0.1);
+      border-radius: 50px;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .feature-chip .chip-icon {
+      font-size: 16px;
+    }
+
+    @media (min-width: 768px) {
+      .product-section { padding: 80px 40px; }
+      .product-inner { grid-template-columns: 1fr 1fr; gap: 56px; }
+      .product-text h2 { font-size: 38px; }
+      .product-inner .product-image { order: -1; }
+    }
+
+    /* ===== SCROLLING TRUST MARQUEE ===== */
+    .trust-marquee {
+      background: var(--navy);
+      padding: 16px 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee-track {
+      display: flex;
+      animation: marquee 25s linear infinite;
+      width: max-content;
+    }
+
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 24px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      white-space: nowrap;
+    }
+
+    .marquee-item .x-mark {
+      color: var(--amber);
+      font-size: 16px;
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===== BENEFITS GRID ===== */
+    .benefits-section {
+      padding: 64px 20px;
+      background: var(--white);
+    }
+
+    .benefits-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .benefits-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .benefit-card {
+      padding: 32px 28px;
+      border-radius: 16px;
+      background: var(--gray-bg);
+      border: 1px solid rgba(0,2,110,0.04);
+    }
+
+    .benefit-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .benefit-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .benefit-card p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    @media (min-width: 768px) {
+      .benefits-section { padding: 80px 40px; }
+      .benefits-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
+    }
+
+    /* ===== FEATURED TESTIMONIAL ===== */
+    .featured-testimonial {
+      padding: 56px 20px;
+      background: var(--cream);
+      text-align: center;
+    }
+
+    .featured-testimonial .quote-mark {
+      font-size: 48px;
+      line-height: 1;
+      color: var(--navy);
+      opacity: 0.15;
+      margin-bottom: 8px;
+    }
+
+    .featured-testimonial blockquote {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--text-dark);
+      max-width: 700px;
+      margin: 0 auto 20px;
+      font-style: italic;
+    }
+
+    .featured-testimonial .quote-stars {
+      color: var(--amber);
+      font-size: 18px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .featured-testimonial .quote-author {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    @media (min-width: 768px) {
+      .featured-testimonial { padding: 72px 40px; }
+      .featured-testimonial blockquote { font-size: 24px; }
+    }
+
+    /* ===== WHO IT'S FOR ===== */
+    .audience-section {
+      padding: 64px 20px;
+      background: var(--gray-bg);
+    }
+
+    .audience-section .section-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .audience-grid {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .audience-card {
+      padding: 28px 24px;
+      border-radius: 16px;
+      background: var(--white);
+      border: 1px solid rgba(0,2,110,0.06);
+    }
+
+    .audience-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .audience-card p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text-body);
+    }
+
+    @media (min-width: 768px) {
+      .audience-section { padding: 80px 40px; }
+      .audience-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
+    }
+
+    /* ===== BIG STAT + TESTIMONIALS ===== */
+    .social-proof-section {
+      padding: 64px 20px;
+      background: var(--white);
+    }
+
+    .social-proof-section .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .social-proof-section .big-stat {
+      font-size: 56px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .social-proof-section .big-stat-sub {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .testimonials-scroll {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials-scroll::-webkit-scrollbar { display: none; }
+
+    .testimonial-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: var(--gray-bg);
+      border-radius: 16px;
+      padding: 28px 24px;
+      border: 1px solid rgba(0,2,110,0.04);
+    }
+
+    .testimonial-card .card-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 12px;
+      color: var(--amber);
+      font-size: 14px;
+    }
+
+    .testimonial-card .card-title {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .testimonial-card .card-body {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-body);
+      margin-bottom: 16px;
+    }
+
+    .testimonial-card .card-author {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    @media (min-width: 768px) {
+      .social-proof-section { padding: 80px 40px; }
+      .social-proof-section .big-stat { font-size: 72px; }
+      .testimonial-card { flex: 0 0 340px; }
+    }
+
+    /* ===== COMPARISON TABLE ===== */
+    .comparison-section {
+      padding: 64px 20px;
+      background: var(--white);
+    }
+
+    .comparison-section .section-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .comparison-table-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      min-width: 600px;
+    }
+
+    .comparison-table thead th {
+      text-align: center;
+      padding: 16px 12px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dark);
+      border-bottom: 2px solid var(--navy);
+    }
+
+    .comparison-table thead th:first-child {
+      text-align: left;
+    }
+
+    .comparison-table thead th.highlight-col {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 12px 12px 0 0;
+    }
+
+    .comparison-table tbody td {
+      text-align: center;
+      padding: 14px 12px;
+      border-bottom: 1px solid rgba(0,2,110,0.06);
+      font-weight: 500;
+      color: var(--text-body);
+    }
+
+    .comparison-table tbody td:first-child {
+      text-align: left;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .comparison-table tbody td.highlight-col {
+      background: rgba(0,2,110,0.03);
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .comparison-table .check { color: var(--navy); font-weight: 700; font-size: 18px; }
+    .comparison-table .cross { color: #ccc; font-size: 18px; }
+    .comparison-table .partial { color: var(--amber); font-size: 13px; font-weight: 600; }
+
+    /* ===== FINAL CTA + BUY BOX ===== */
+    .buy-section {
+      padding: 64px 20px;
+      background: var(--cream);
+    }
+
+    .buy-section .section-header {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .buy-section .guarantee-text {
+      text-align: center;
+      font-size: 16px;
+      color: var(--text-body);
+      margin-bottom: 40px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .buy-box {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* Color selector */
+    .color-selector {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .color-option {
+      width: 80px;
+      height: 80px;
+      border-radius: 14px;
+      border: 3px solid transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 600;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+
+    .color-option.selected { border-color: var(--navy); }
+    .color-option:hover { border-color: var(--navy); }
+    .color-white { background: #f0ece8; color: var(--text-muted); }
+    .color-black { background: #2a2a2a; color: #ccc; }
+
+    /* Pricing card */
+    .pricing-card {
+      background: var(--white);
+      border: 2px solid rgba(0,2,110,0.1);
+      border-radius: 20px;
+      padding: 36px 28px;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .pricing-card .save-badge {
+      display: inline-block;
+      background: var(--sale-red);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 20px;
+    }
+
+    .pricing-card .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .pricing-card .price-current {
+      font-size: 52px;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .pricing-card .price-original {
+      font-size: 20px;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .pricing-card .code-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 20px 0;
+      padding: 14px;
+      border: 2px dashed rgba(0,2,110,0.15);
+      border-radius: 10px;
+      background: var(--gray-bg);
+    }
+
+    .pricing-card .code-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .pricing-card .code-value {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: 1px;
+    }
+
+    .pricing-card .order-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      background: var(--navy);
+      color: var(--white);
+      padding: 18px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 18px;
+      font-family: var(--font);
+      border: none;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .pricing-card .order-btn:hover { background: var(--navy-dark); transform: translateY(-1px); }
+
+    .pricing-card .order-btn .arrow { font-size: 20px; }
+
+    .pricing-card .perks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .pricing-card .perks span::before {
+      content: '✓ ';
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    /* ===== FAQ SECTION ===== */
+    .faq-section {
+      margin-top: 48px;
+    }
+
+    .faq-section h3 {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--navy);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(0,2,110,0.08);
+    }
+
+    .faq-question {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-dark);
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: var(--font);
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover { color: var(--navy); }
+
+    .faq-icon {
+      font-size: 20px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 12px;
+      color: var(--navy);
+    }
+
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 20px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-body);
+    }
+
+    /* ===== REVIEWS SECTION ===== */
+    .reviews-section {
+      padding: 64px 20px;
+      background: var(--white);
+    }
+
+    .reviews-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .reviews-header {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .reviews-header h2 {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .reviews-header .review-summary {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .rating-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .rating-row .rating-label {
+      width: 50px;
+      font-weight: 600;
+      color: var(--text-dark);
+    }
+
+    .rating-row .rating-bar {
+      flex: 1;
+      height: 8px;
+      background: var(--gray-bg);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .rating-row .rating-bar .fill {
+      height: 100%;
+      background: var(--amber);
+      border-radius: 4px;
+    }
+
+    .rating-row .rating-pct {
+      width: 40px;
+      text-align: right;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .review-card {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(0,2,110,0.06);
+    }
+
+    .review-card:last-child { border-bottom: none; }
+
+    .review-card .review-stars {
+      display: flex;
+      gap: 2px;
+      margin-bottom: 8px;
+      color: var(--amber);
+      font-size: 14px;
+    }
+
+    .review-card .review-title {
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .review-card .review-body {
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--text-body);
+      margin-bottom: 8px;
+    }
+
+    .review-card .review-author {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.6);
+      padding: 48px 20px;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .footer .footer-logo {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .footer .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .footer .footer-links a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .footer .footer-links a:hover { color: var(--white); }
+
+    .footer .payment-icons {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 20px;
+      font-size: 12px;
+      opacity: 0.4;
+      font-weight: 600;
+    }
+
+    .footer .copyright {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PROMO BAR -->
+  <div class="promo-bar">
+    Save 50% + Extra 35% Off — Use Code <span class="code">WITHLOVE35</span> · Free Shipping
+  </div>
+
+  <!-- LOGO HEADER -->
+  <div class="logo-header">
+    <div class="logo">LIVMORE</div>
+    <div class="logo-sub">Comfort Fitness</div>
+  </div>
+
+  <!-- STICKY NAV -->
+  <nav class="sticky-nav" id="stickyNav">
+    <div class="nav-logo">LIVMORE</div>
+    <div class="nav-center">
+      <span class="stars">★★★★½</span>
+      <span>4,000+ Happy Customers</span>
+    </div>
+    <a href="#buy" class="nav-cta">Get Yours — Save 50%</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="heroSection">
+    <div class="hero-inner">
+      <div class="hero-image">
+        <img src="assets/stepper/optimized/allie-desk/7rv3091.jpg" alt="Woman comfortably using the LIVMORE stepper while seated at her desk">
+      </div>
+      <div class="hero-content">
+        <div class="hero-proof-badge">
+          <span class="stars">★★★★★</span>
+          <span>Rated 4.5/5 by 4,000+ customers</span>
+        </div>
+        <h1>Stay Active Without Leaving Your Favorite Chair</h1>
+        <p class="hero-subtitle">The motorized stepper that moves your legs for you — boosting circulation, easing stiffness, and burning calories. No standing. No gym. No effort.</p>
+        <a href="#buy" class="btn-primary">Get Yours — Save 50% <span class="arrow">→</span></a>
+        <div class="hero-trust">
+          <span>Free Shipping</span>
+          <span>30-Day Returns</span>
+          <span>4,000+ Sold</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM AGITATION -->
+  <section class="problem-section">
+    <div class="section-header">
+      <div class="section-eyebrow">The Problem</div>
+      <h2 class="section-title">The cost of sitting still</h2>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-number">01</div>
+        <h3>Your circulation slows down</h3>
+        <p>When your legs don't move, blood pools in your lower body. That's why your ankles swell, your feet go numb, and your legs feel heavy by evening.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-number">02</div>
+        <h3>Your joints stiffen up</h3>
+        <p>Without regular motion, joints lose their range. Stiffness becomes pain. Pain becomes inactivity. Inactivity makes the stiffness worse. It's a cycle that accelerates every day.</p>
+      </div>
+      <div class="problem-card">
+        <div class="problem-number">03</div>
+        <h3>Your body quietly declines</h3>
+        <p>Prolonged sitting is linked to increased health risks at every age. Not because you're lazy, but because your body was designed to move.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN AMPLIFICATION -->
+  <section class="pain-section">
+    <div class="pain-inner">
+      <div class="pain-image">
+        <img src="assets/stepper/optimized/senior/7rv3164.jpg" alt="Senior woman relaxing comfortably in her living room">
+      </div>
+      <div class="pain-text">
+        <div class="section-eyebrow">The Real Issue</div>
+        <h2>Most solutions are worse than the problem</h2>
+        <p>Going to the gym means getting dressed, driving, and pushing through pain you shouldn't be pushing through. Walking helps, but not when it's raining, your knees say no, or you simply don't have the energy.</p>
+        <p>You don't need another exercise plan you'll abandon by Tuesday. You need movement that happens while you live your life.</p>
+        <a href="#buy" class="btn-outline">See how it works <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT INTRO -->
+  <section class="product-section">
+    <div class="product-inner">
+      <div class="product-image">
+        <img src="assets/stepper/optimized/pdp-photos/8216120_6.jpg" alt="LIVMORE stepper LCD display showing speed modes">
+      </div>
+      <div class="product-text">
+        <div class="section-eyebrow">The Solution</div>
+        <h2>Healthy movement that comes to you</h2>
+        <p>The LIVMORE Motorized Stepper sits at your feet and moves your legs in a smooth, gentle stepping motion — automatically. Place your feet on the pedals, press start with the remote, and let the motor do the rest. Use it while you read, watch TV, or work. 12 speed modes let you go as gentle or as active as you want.</p>
+        <div class="feature-chips">
+          <span class="feature-chip"><span class="chip-icon">🔇</span> Nearly silent motor</span>
+          <span class="feature-chip"><span class="chip-icon">🎮</span> Remote control included</span>
+          <span class="feature-chip"><span class="chip-icon">⚡</span> 12 speed modes</span>
+          <span class="feature-chip"><span class="chip-icon">📐</span> Slides under any chair</span>
+          <span class="feature-chip"><span class="chip-icon">🧦</span> Use in socks</span>
+          <span class="feature-chip"><span class="chip-icon">📦</span> Ready in 5 minutes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST MARQUEE -->
+  <div class="trust-marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">No Impact <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Assembly <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Noise <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Gym <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Standing <span class="x-mark">✕</span></span>
+      <span class="marquee-item">Zero Fall Risk <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Excuses <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Impact <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Assembly <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Noise <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Gym <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Standing <span class="x-mark">✕</span></span>
+      <span class="marquee-item">Zero Fall Risk <span class="x-mark">✕</span></span>
+      <span class="marquee-item">No Excuses <span class="x-mark">✕</span></span>
+    </div>
+  </div>
+
+  <!-- BENEFITS GRID -->
+  <section class="benefits-section">
+    <div class="section-header">
+      <div class="section-eyebrow">Why It Works</div>
+      <h2 class="section-title">Benefits you'll feel this week</h2>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-card-icon">🦵</div>
+        <h3>Lighter, less swollen legs</h3>
+        <p>The motorized stepping motion pushes blood back up through your lower body — the way walking does, without the effort. Most users notice a difference within the first few sessions.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-icon">🦴</div>
+        <h3>Joints that move without pain</h3>
+        <p>Zero-impact, zero-weight-bearing motion. Your knees, hips, and ankles get the movement they need without any of the stress they don't. Ideal for arthritis.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-icon">⚡</div>
+        <h3>More energy, less stiffness</h3>
+        <p>Gentle motion fights the afternoon slump better than coffee. Your muscles stay loose, your body stays warm, and that heavy "I've been sitting too long" feeling goes away.</p>
+      </div>
+      <div class="benefit-card">
+        <div class="benefit-card-icon">🏠</div>
+        <h3>Independence you can feel</h3>
+        <p>No gym. No walking partner. No good weather required. It sits next to your favorite chair. Plug it in, press start. Exercise on your terms — rain or shine, morning or midnight.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED TESTIMONIAL 1 -->
+  <section class="featured-testimonial">
+    <div class="quote-mark">"</div>
+    <div class="quote-stars">★★★★★</div>
+    <blockquote>I was skeptical but this thing is tremendous. My legs used to swell every evening — now I use the stepper while watching my shows and the swelling has gone down significantly.</blockquote>
+    <div class="quote-author">— Margaret R.</div>
+  </section>
+
+  <!-- WHO IT'S FOR -->
+  <section class="audience-section">
+    <div class="section-header">
+      <div class="section-eyebrow">Who It's For</div>
+      <h2 class="section-title">Built for every body, every chair, every life</h2>
+    </div>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <h3>Seniors 60+</h3>
+        <p>Stay active without risking a fall. The motor does the work. You stay safe in your seat.</p>
+      </div>
+      <div class="audience-card">
+        <h3>Desk Workers</h3>
+        <p>8 hours at a desk doesn't have to mean 8 hours of zero movement. Slides right under your workstation.</p>
+      </div>
+      <div class="audience-card">
+        <h3>Wheelchair Users</h3>
+        <p>Low profile, motorized action. Works from any seated position. Lock your wheels and let the stepper move your legs.</p>
+      </div>
+      <div class="audience-card">
+        <h3>Anyone Recovering</h3>
+        <p>Post-surgery, post-injury, or just getting back on your feet. Gentle motion on your terms.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIG STAT + TESTIMONIALS -->
+  <section class="social-proof-section">
+    <div class="section-header">
+      <div class="big-stat">4,000+</div>
+      <div class="big-stat-sub">people already moving · Rated 4.5 stars</div>
+    </div>
+    <div class="testimonials-scroll">
+      <div class="testimonial-card">
+        <div class="card-stars">★★★★★</div>
+        <div class="card-title">Perfect for arthritis</div>
+        <div class="card-body">Both my husband and myself have been using the stepper every day. I like the different modes for variety. It's quiet and easy to move around. Nice to have when you have arthritis and can't always take a walk.</div>
+        <div class="card-author">— Charleen H.</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="card-stars">★★★★<span style="opacity:0.3;">★</span></div>
+        <div class="card-title">Exactly what I needed</div>
+        <div class="card-body">This is exactly the electric assist stepper I was looking for. Does a good workout for my legs without me having to stand up. Very happy with this purchase. Shipping was fast too.</div>
+        <div class="card-author">— Patricia M.</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="card-stars">★★★★★</div>
+        <div class="card-title">My legs feel so much better</div>
+        <div class="card-body">I was skeptical but this thing is tremendous. My legs used to swell every evening — now I use the stepper while watching my shows and the swelling has gone down significantly. So thankful I gave it a try.</div>
+        <div class="card-author">— Margaret R.</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="card-stars">★★★★★</div>
+        <div class="card-title">Great for wheelchair users</div>
+        <div class="card-body">My mother is in a wheelchair and has very limited mobility. This stepper has been a game changer for her circulation. She uses it every morning and says her legs feel lighter throughout the day.</div>
+        <div class="card-author">— David K.</div>
+      </div>
+      <div class="testimonial-card">
+        <div class="card-stars">★★★★<span style="opacity:0.3;">★</span></div>
+        <div class="card-title">Use it every single day</div>
+        <div class="card-body">I'm 78 and getting to the gym isn't realistic anymore. This little machine sits next to my recliner and I use it every day without even thinking about it. No excuses not to move when it's this easy.</div>
+        <div class="card-author">— Robert T.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED TESTIMONIAL 2 -->
+  <section class="featured-testimonial">
+    <div class="quote-mark">"</div>
+    <div class="quote-stars">★★★★★</div>
+    <blockquote>My mother is in a wheelchair and has very limited mobility. This stepper has been a game changer for her circulation. She uses it every morning and says her legs feel lighter throughout the day.</blockquote>
+    <div class="quote-author">— David K. (bought for his mother)</div>
+  </section>
+
+  <!-- COMPARISON TABLE -->
+  <section class="comparison-section">
+    <div class="section-header">
+      <div class="section-eyebrow">See The Difference</div>
+      <h2 class="section-title">Why the LIVMORE Stepper wins</h2>
+    </div>
+    <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th class="highlight-col">LIVMORE Stepper</th>
+            <th>Manual Pedaler</th>
+            <th>Walking</th>
+            <th>Gym</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Works from any chair</td>
+            <td class="highlight-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+          </tr>
+          <tr>
+            <td>Motor does the work</td>
+            <td class="highlight-col"><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+          </tr>
+          <tr>
+            <td>Zero impact on joints</td>
+            <td class="highlight-col"><span class="check">✓</span></td>
+            <td><span class="partial">Partial</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+          </tr>
+          <tr>
+            <td>No weather dependency</td>
+            <td class="highlight-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="check">✓</span></td>
+          </tr>
+          <tr>
+            <td>Zero fall risk</td>
+            <td class="highlight-col"><span class="check">✓</span></td>
+            <td><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td><span class="cross">✕</span></td>
+          </tr>
+          <tr>
+            <td>Remote control</td>
+            <td class="highlight-col"><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Silent operation</td>
+            <td class="highlight-col"><span class="check">✓</span></td>
+            <td><span class="cross">✕</span></td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>Ongoing cost</td>
+            <td class="highlight-col">$0</td>
+            <td>$0</td>
+            <td>$0</td>
+            <td>$30-80/mo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- BUY BOX + CTA -->
+  <section class="buy-section" id="buy">
+    <div class="section-header">
+      <div class="section-eyebrow">Risk-Free Guarantee</div>
+      <h2 class="section-title">Start moving again today</h2>
+    </div>
+    <p class="guarantee-text">If you don't feel the difference in 30 days, send it back. Full refund. No questions.</p>
+
+    <div class="buy-box">
+      <!-- Color selector -->
+      <div class="color-selector">
+        <div class="color-option color-white selected" data-color="white" onclick="selectColor(this)">
+          Classic White
+        </div>
+        <div class="color-option color-black" data-color="black" onclick="selectColor(this)">
+          Sport Black
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="pricing-card">
+        <div class="save-badge">Save 50% + Extra 35% Off</div>
+        <div class="price-row">
+          <span class="price-current">$149.99</span>
+          <span class="price-original">$299.99</span>
+        </div>
+
+        <div class="code-row">
+          <span class="code-label">Use Code:</span>
+          <span class="code-value">WITHLOVE35</span>
+        </div>
+
+        <button class="order-btn">ORDER YOURS TODAY <span class="arrow">→</span></button>
+
+        <div class="perks">
+          <span>Free Shipping</span>
+          <span>30-Day Returns</span>
+          <span>Secure Checkout</span>
+        </div>
+      </div>
+
+      <!-- FAQ -->
+      <div class="faq-section">
+        <h3>Common Questions</h3>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Is it safe for people with bad knees or arthritis?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. The motorized motion is completely zero-impact — your joints aren't bearing any weight. The stepper moves your legs in a gentle, smooth motion similar to slow walking, but without any pressure on your knees, hips, or ankles. Many of our customers use it specifically because of arthritis.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How loud is it? Can I use it while watching TV?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">The magnetic resistance system is nearly silent. You can comfortably use it during phone calls, while watching TV, or even while the grandkids are napping in the next room. Most users tell us they forget it's running.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do I need to assemble it? Is it hard to set up?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Minimal setup required — it arrives nearly fully assembled. Just plug it in, place it on the floor, and you're ready to go. No tools needed. The included remote control means you can adjust settings without bending down.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What if the speed is too fast for me?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Mode 1 is extremely gentle — barely more than a slow rock. You control the speed completely with the remote. Most people start on modes 1-3 and gradually increase over time. There's no pressure to go fast — even the gentlest setting promotes circulation.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I use it from a wheelchair?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Absolutely. The low-profile design and motorized action mean it works from any seated position — armchair, office chair, couch, or wheelchair. Lock your wheels and let the stepper do the rest.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What's your return policy?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We offer a 30-day hassle-free return policy. If you're not completely satisfied with your stepper, return it within 30 days for a full refund. No questions asked. We want you to feel confident in your purchase.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="reviews-section">
+    <div class="reviews-inner">
+      <div class="reviews-header">
+        <h2>Customer Reviews</h2>
+        <p class="review-summary">4.5 out of 5 based on 4,000+ reviews</p>
+      </div>
+
+      <div class="rating-breakdown">
+        <div class="rating-row">
+          <span class="rating-label">5 star</span>
+          <div class="rating-bar"><div class="fill" style="width:68%;"></div></div>
+          <span class="rating-pct">68%</span>
+        </div>
+        <div class="rating-row">
+          <span class="rating-label">4 star</span>
+          <div class="rating-bar"><div class="fill" style="width:22%;"></div></div>
+          <span class="rating-pct">22%</span>
+        </div>
+        <div class="rating-row">
+          <span class="rating-label">3 star</span>
+          <div class="rating-bar"><div class="fill" style="width:7%;"></div></div>
+          <span class="rating-pct">7%</span>
+        </div>
+        <div class="rating-row">
+          <span class="rating-label">2 star</span>
+          <div class="rating-bar"><div class="fill" style="width:2%;"></div></div>
+          <span class="rating-pct">2%</span>
+        </div>
+        <div class="rating-row">
+          <span class="rating-label">1 star</span>
+          <div class="rating-bar"><div class="fill" style="width:1%;"></div></div>
+          <span class="rating-pct">1%</span>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Circulation has improved noticeably</div>
+        <div class="review-body">After two weeks of daily use, the swelling in my ankles has reduced significantly. I use it for about 30 minutes while watching the morning news. The quiet motor is a huge plus — my wife doesn't even notice it's on.</div>
+        <div class="review-author">James W. · Verified Buyer</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-title">Bought it for Mom — she loves it</div>
+        <div class="review-body">My mom is 82 and doesn't get out much anymore. I got her this for Christmas and she uses it every day. She says her legs don't feel as heavy in the evenings. Best gift I could have gotten her.</div>
+        <div class="review-author">Susan L. · Verified Buyer</div>
+      </div>
+
+      <div class="review-card">
+        <div class="review-stars">★★★★<span style="opacity:0.3;">★</span></div>
+        <div class="review-title">Easy to use, works as advertised</div>
+        <div class="review-body">Setup took about 5 minutes. The different speed modes are nice — I started on 2 and now I'm up to 5. Only wish is that the cord was a bit longer. Otherwise, very happy with the product and the price.</div>
+        <div class="review-author">Carol A. · Verified Buyer</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-logo">LIVMORE</div>
+    <div class="footer-links">
+      <a href="#">Contact Us</a>
+      <a href="#">Shipping Policy</a>
+      <a href="#">Return Policy</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+    </div>
+    <div class="payment-icons">
+      <span>VISA</span>
+      <span>MC</span>
+      <span>AMEX</span>
+      <span>DISCOVER</span>
+      <span>PAYPAL</span>
+      <span>GPAY</span>
+      <span>APPLEPAY</span>
+    </div>
+    <div class="copyright">&copy; 2025 Shop LC. All Rights Reserved. A VGL Group Company.</div>
+  </footer>
+
+  <script>
+    // Sticky nav via IntersectionObserver
+    const hero = document.getElementById('heroSection');
+    const stickyNav = document.getElementById('stickyNav');
+    const observer = new IntersectionObserver(([entry]) => {
+      stickyNav.classList.toggle('visible', !entry.isIntersecting);
+    }, { threshold: 0 });
+    observer.observe(hero);
+
+    // FAQ accordion
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-answer').style.maxHeight = null;
+      });
+
+      if (!isOpen) {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+
+    // Color selector
+    function selectColor(el) {
+      document.querySelectorAll('.color-option').forEach(o => o.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+  </script>
+</body>
+</html>
