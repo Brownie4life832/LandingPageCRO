@@ -4,6 +4,39 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- URL Parameter Handling (Collection Page) ---
+    const params = new URLSearchParams(window.location.search);
+    const gemParam = params.get('gem');
+    if (gemParam) {
+        const gemNames = {
+            'tanzanite': 'Tanzanite', 'lab-diamond': 'Lab-Grown Diamond', 'sapphire': 'Sapphire',
+            'emerald': 'Emerald', 'morganite': 'Morganite', 'opal': 'Opal', 'ruby': 'Ruby', 'aquamarine': 'Aquamarine'
+        };
+        const gemLabel = gemNames[gemParam] || gemParam;
+
+        // Update heading to show gemstone collection
+        const title = document.querySelector('.collection-title');
+        if (title) title.textContent = gemLabel.toUpperCase();
+
+        const desc = document.querySelector('.collection-description');
+        if (desc) desc.textContent = 'Certified ' + gemLabel + ' jewelry — rings, necklaces, earrings, and bracelets at direct-to-you prices.';
+
+        const crumbSpan = document.querySelector('.breadcrumb span');
+        if (crumbSpan) crumbSpan.textContent = gemLabel;
+
+        // Auto-check the matching gemstone filter
+        document.querySelectorAll('.filter-option').forEach(label => {
+            if (label.textContent.toLowerCase().includes(gemParam.replace('-', ' '))) {
+                const checkbox = label.querySelector('input[type="checkbox"]');
+                if (checkbox) checkbox.checked = true;
+            }
+        });
+
+        // Hide category tabs since we're browsing by gemstone
+        const catBar = document.querySelector('.category-tabs-bar');
+        if (catBar) catBar.style.display = 'none';
+    }
+
     // --- Announcement Bar Carousel ---
     const slides = document.querySelectorAll('.announcement-slide');
     if (slides.length > 1) {
@@ -69,6 +102,62 @@ document.addEventListener('DOMContentLoaded', () => {
             toggle.classList.toggle('open');
             const options = toggle.nextElementSibling;
             if (options) options.classList.toggle('show');
+        });
+    });
+
+    // --- Category Tabs (Collection Page) ---
+    const categoryData = {
+        'Rings': { count: '6,196', desc: 'From solitaire tanzanite to lab-grown diamond halos — certified gemstone rings designed to be worn every day, at prices that let you build a real collection.', pills: ['All Rings','Solitaire','Halo','Tennis','Cocktail','Stacking','Promise','Engagement',"Men's"] },
+        'Necklaces': { count: '1,384', desc: 'Pendant necklaces, tennis chains, and layering pieces — set with certified gemstones in sterling silver, gold vermeil, and 14K gold.', pills: ['All Necklaces','Pendants','Tennis','Chains','Layering','Chokers','Statement'] },
+        'Earrings': { count: '1,225', desc: 'Studs, drops, hoops, and huggies — certified gemstone earrings that go from everyday to evening without missing a beat.', pills: ['All Earrings','Studs','Drops','Hoops','Huggies','Chandelier','Climbers'] },
+        'Bracelets': { count: '1,269', desc: 'Tennis bracelets, bangles, and cuffs — certified gemstones set in designs you can stack or wear solo.', pills: ['All Bracelets','Tennis','Bangles','Cuffs','Chain','Charm'] },
+        'Pendants': { count: '256', desc: 'Standalone certified gemstone pendants — pair with your favorite chain for a look that\'s uniquely yours.', pills: ['All Pendants','Solitaire','Halo','Cluster','Heart','Cross'] },
+        'Sets': { count: '1,556', desc: 'Coordinated ring, earring, and necklace sets — certified gemstone jewelry designed to match, at a bundled price.', pills: ['All Sets','Ring + Earring','Necklace + Earring','3-Piece','Bridal'] },
+    };
+
+    document.querySelectorAll('.cat-tab').forEach(tab => {
+        tab.addEventListener('click', (e) => {
+            e.preventDefault();
+            const name = tab.textContent.trim();
+            const data = categoryData[name];
+            if (!data) return;
+
+            // Update active tab
+            document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            // Update page heading
+            const title = document.querySelector('.collection-title');
+            if (title) title.textContent = name.toUpperCase();
+
+            // Update breadcrumb
+            const crumbSpan = document.querySelector('.breadcrumb span');
+            if (crumbSpan) crumbSpan.textContent = name;
+
+            // Update description
+            const desc = document.querySelector('.collection-description');
+            if (desc) desc.textContent = data.desc;
+
+            // Update product count
+            const countEl = document.querySelector('.result-count');
+            if (countEl) countEl.textContent = data.count + ' Products';
+            const showingEl = document.querySelector('.showing-count');
+            if (showingEl) showingEl.textContent = 'Showing 8 of ' + data.count + ' products';
+
+            // Update subcategory pills
+            const pillsWrap = document.querySelector('.subcategory-pills');
+            if (pillsWrap) {
+                pillsWrap.innerHTML = data.pills.map((p, i) =>
+                    `<button class="pill${i === 0 ? ' active' : ''}">${p}</button>`
+                ).join('');
+                // Re-bind pill clicks
+                pillsWrap.querySelectorAll('.pill').forEach(pill => {
+                    pill.addEventListener('click', () => {
+                        pillsWrap.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+                        pill.classList.add('active');
+                    });
+                });
+            }
         });
     });
 
