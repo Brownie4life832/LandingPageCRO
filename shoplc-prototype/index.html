@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop LC — Certified Gemstone Jewelry at Incredible Value</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-carousel">
+            <div class="announcement-slide active">Free Shipping Sitewide — No Minimum</div>
+            <div class="announcement-slide">Spring Clearance: 25% OFF with Code <strong>BLOOM</strong></div>
+            <div class="announcement-slide">Certified Gemstones · Lifetime Warranty · Free Returns</div>
+        </div>
+        <button class="announcement-close" aria-label="Close">&times;</button>
+    </div>
+
+    <!-- Personal Shopper Bar -->
+    <div class="shopper-bar">
+        <div class="shopper-bar-inner">
+            <a href="tel:18669867373" class="shopper-phone">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <strong>1-866-986-7373</strong>
+            </a>
+            <span class="shopper-divider">|</span>
+            <button class="shopper-chat-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+                Live Chat
+            </button>
+            <span class="shopper-divider">|</span>
+            <button class="shopper-personal-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                Talk to a Personal Shopper
+            </button>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="main-nav">
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+            <a href="index.html" class="logo">SHOP <span class="logo-lc">LC</span></a>
+            <ul class="nav-links">
+                <li class="nav-item has-dropdown">
+                    <a href="collection.html" class="nav-active">Shop by Jewelry</a>
+                    <div class="nav-dropdown">
+                        <div class="dropdown-grid">
+                            <div class="dropdown-col">
+                                <h4 class="dropdown-heading">By Type</h4>
+                                <ul class="dropdown-list">
+                                    <li><a href="collection.html">Rings</a></li>
+                                    <li><a href="collection.html">Necklaces &amp; Pendants</a></li>
+                                    <li><a href="collection.html">Earrings</a></li>
+                                    <li><a href="collection.html">Bracelets</a></li>
+                                    <li><a href="collection.html">Sets</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-col">
+                                <h4 class="dropdown-heading">By Gemstone</h4>
+                                <ul class="dropdown-list">
+                                    <li><a href="collection.html">Tanzanite</a></li>
+                                    <li><a href="collection.html">Sapphire</a></li>
+                                    <li><a href="collection.html">Emerald</a></li>
+                                    <li><a href="collection.html">Opal</a></li>
+                                    <li><a href="collection.html">Lab-Grown Diamond</a></li>
+                                    <li><a href="collection.html">All Gemstones →</a></li>
+                                </ul>
+                            </div>
+                            <div class="dropdown-col">
+                                <h4 class="dropdown-heading">By Metal</h4>
+                                <ul class="dropdown-list">
+                                    <li><a href="collection.html">Sterling Silver</a></li>
+                                    <li><a href="collection.html">Gold Vermeil</a></li>
+                                    <li><a href="collection.html">14K Gold</a></li>
+                                    <li><a href="collection.html">Platinum</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="collection.html">New Arrivals</a></li>
+                <li><a href="collection.html">Best Sellers</a></li>
+                <li><a href="#">Gifts</a></li>
+                <li><a href="#how-we-price">Our Value Story</a></li>
+                <li><a href="collection.html" class="nav-sale">Sale</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </button>
+                <a href="#" class="nav-icon" aria-label="Account">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </a>
+                <a href="#" class="nav-icon" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </a>
+                <button class="nav-icon cart-toggle" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-media hero-gradient">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <p class="hero-eyebrow">Certified Gemstone Jewelry · Since 2007</p>
+            <h1 class="hero-headline">Extraordinary Stones.<br>Unbelievable Prices.</h1>
+            <p class="hero-sub">100+ certified gemstones, direct-to-you pricing. No middlemen, no markup.</p>
+            <div class="hero-ctas">
+                <a href="collection.html" class="btn btn-primary">Shop the Collection</a>
+                <a href="#new-arrivals" class="btn btn-secondary">See What's New</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <div class="trust-strip">
+        <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Certified Authentic</span>
+        </div>
+        <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5a2 2 0 01-2 2h-1"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+            <span>Free Shipping</span>
+        </div>
+        <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <span>IGI Certified</span>
+        </div>
+        <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span>Lifetime Warranty</span>
+        </div>
+        <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+            <span>Budget Pay Available</span>
+        </div>
+        <div class="trust-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 4H8l-7 8 7 8h13a2 2 0 002-2V6a2 2 0 00-2-2z"/><line x1="18" y1="9" x2="12" y2="15"/><line x1="12" y1="9" x2="18" y2="15"/></svg>
+            <span>30-Day Returns</span>
+        </div>
+    </div>
+
+    <!-- Category Navigation -->
+    <section class="category-nav" id="shop-by">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div class="category-carousel">
+                <a href="collection.html" class="category-card">
+                    <div class="category-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=400&q=80" alt="Rings">
+                    </div>
+                    <span class="category-label">Rings</span>
+                    <span class="category-count">6,196 pieces</span>
+                </a>
+                <a href="collection.html" class="category-card">
+                    <div class="category-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=400&q=80" alt="Necklaces">
+                    </div>
+                    <span class="category-label">Necklaces</span>
+                    <span class="category-count">1,384 pieces</span>
+                </a>
+                <a href="collection.html" class="category-card">
+                    <div class="category-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=400&q=80" alt="Earrings">
+                    </div>
+                    <span class="category-label">Earrings</span>
+                    <span class="category-count">1,225 pieces</span>
+                </a>
+                <a href="collection.html" class="category-card">
+                    <div class="category-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80" alt="Bracelets">
+                    </div>
+                    <span class="category-label">Bracelets</span>
+                    <span class="category-count">1,269 pieces</span>
+                </a>
+                <a href="collection.html" class="category-card">
+                    <div class="category-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=400&q=80" alt="Pendants">
+                    </div>
+                    <span class="category-label">Pendants</span>
+                    <span class="category-count">256 pieces</span>
+                </a>
+                <a href="collection.html" class="category-card">
+                    <div class="category-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=400&q=80" alt="Sets">
+                    </div>
+                    <span class="category-label">Jewelry Sets</span>
+                    <span class="category-count">1,556 pieces</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals Grid -->
+    <section class="product-section" id="new-arrivals">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">New Arrivals</h2>
+                <a href="collection.html" class="section-link">View All →</a>
+            </div>
+            <div class="product-grid">
+                <div class="product-card">
+                    <a href="product.html" class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&q=80" alt="Tanzanite Solitaire Ring" class="product-img primary">
+                        <img src="https://images.unsplash.com/photo-1608042314453-ae338d80c427?w=500&q=80" alt="Tanzanite Ring on hand" class="product-img hover">
+                        <span class="product-badge badge-new">New</span>
+                        <button class="quick-add" aria-label="Quick add">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            Add to Cart
+                        </button>
+                    </a>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href="product.html">Tanzanite Solitaire Ring</a></h3>
+                        <p class="product-price">
+                            <span class="price-compare">$4,699</span>
+                            <span class="price-current">$1,299</span>
+                            <span class="price-badge">72% Off</span>
+                        </p>
+                        <p class="product-material">14K White Gold · AAA Tanzanite</p>
+                        <p class="product-budget-pay">or 5 payments of $260 with <strong>Budget Pay</strong></p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="product.html" class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=500&q=80" alt="Lab Diamond Tennis Necklace" class="product-img primary">
+                        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=500&q=80" alt="Tennis Necklace worn" class="product-img hover">
+                        <span class="product-badge badge-best">Best Seller</span>
+                        <button class="quick-add" aria-label="Quick add">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            Add to Cart
+                        </button>
+                    </a>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href="product.html">Lab Diamond Tennis Necklace</a></h3>
+                        <p class="product-price">
+                            <span class="price-compare">$12,999</span>
+                            <span class="price-current">$1,998</span>
+                            <span class="price-badge">85% Off</span>
+                        </p>
+                        <p class="product-material">Platinum Over Silver · Lab Diamond</p>
+                        <p class="product-budget-pay">or 5 payments of $400 with <strong>Budget Pay</strong></p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="product.html" class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=500&q=80" alt="Morganite Drop Earrings" class="product-img primary">
+                        <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=500&q=80" alt="Morganite Earrings on model" class="product-img hover">
+                        <button class="quick-add" aria-label="Quick add">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            Add to Cart
+                        </button>
+                    </a>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href="product.html">Morganite Halo Drop Earrings</a></h3>
+                        <p class="product-price">
+                            <span class="price-compare">$899</span>
+                            <span class="price-current">$249</span>
+                            <span class="price-badge">72% Off</span>
+                        </p>
+                        <p class="product-material">Rose Gold Vermeil · Natural Morganite</p>
+                        <p class="product-budget-pay">or 5 payments of $50 with <strong>Budget Pay</strong></p>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <a href="product.html" class="product-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=80" alt="Emerald Tennis Bracelet" class="product-img primary">
+                        <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=500&q=80" alt="Emerald Bracelet styled" class="product-img hover">
+                        <span class="product-badge badge-low">Only 3 Left</span>
+                        <button class="quick-add" aria-label="Quick add">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                            Add to Cart
+                        </button>
+                    </a>
+                    <div class="product-info">
+                        <h3 class="product-name"><a href="product.html">Emerald Tennis Bracelet</a></h3>
+                        <p class="product-price">
+                            <span class="price-compare">$3,499</span>
+                            <span class="price-current">$599</span>
+                            <span class="price-badge">83% Off</span>
+                        </p>
+                        <p class="product-material">Sterling Silver · Natural Emerald</p>
+                        <p class="product-budget-pay">or 5 payments of $120 with <strong>Budget Pay</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Shopper CTA Section -->
+    <section class="personal-shopper-section">
+        <div class="container">
+            <div class="ps-card">
+                <div class="ps-icon">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                </div>
+                <div class="ps-content">
+                    <h3>Not Sure What to Choose? Talk to a Personal Shopper.</h3>
+                    <p>Our gemstone experts have helped over 500,000 customers find the perfect piece. Call us, chat live, or book a one-on-one consultation — we'll walk you through stones, settings, and sizing until you're confident.</p>
+                </div>
+                <div class="ps-actions">
+                    <a href="tel:18669867373" class="btn btn-dark">Call 1-866-986-7373</a>
+                    <button class="btn btn-outline shopper-chat-btn">Start Live Chat</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial Split — Day to Evening -->
+    <section class="editorial-split">
+        <div class="editorial-media">
+            <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=900&q=80" alt="Elegant jewelry styling">
+        </div>
+        <div class="editorial-content">
+            <p class="editorial-eyebrow">One Piece, Every Occasion</p>
+            <h2 class="editorial-headline">From Day<br>to Evening</h2>
+            <p class="editorial-copy">A certified tanzanite ring at the office. The same ring catching candlelight at dinner. Our gemstone jewelry is crafted to move with your life — from everyday moments to the ones you'll always remember.</p>
+            <a href="collection.html" class="btn btn-dark">Shop Statement Pieces</a>
+        </div>
+    </section>
+
+    <!-- Gemstone Guide Section -->
+    <section class="gemstone-guide-section" id="gemstone-guide">
+        <div class="container">
+            <h2 class="section-title">The Shop LC Gemstone Guide</h2>
+            <p class="section-subtitle">Learn what makes each stone special — from origin to grading to care.</p>
+            <div class="guide-grid">
+                <div class="guide-card">
+                    <div class="guide-swatch" style="background: linear-gradient(135deg, #6B3FA0, #9B6FD0)"></div>
+                    <h4>Tanzanite</h4>
+                    <p>Found only near Mt. Kilimanjaro, tanzanite is 1,000x rarer than diamond. Its violet-blue trichroism shifts color with every angle. Supply may be depleted within 20 years.</p>
+                    <span class="guide-detail">Mohs Hardness: 6.5 · Origin: Tanzania</span>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-swatch" style="background: linear-gradient(135deg, #E8E8E8, #F5F5F5)"></div>
+                    <h4>Lab-Grown Diamond</h4>
+                    <p>Chemically, physically, and optically identical to mined diamonds — created in a controlled environment. Same brilliance, same hardness, a fraction of the price.</p>
+                    <span class="guide-detail">Mohs Hardness: 10 · Origin: Laboratory</span>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-swatch" style="background: linear-gradient(135deg, #1B4D8B, #3D7CC9)"></div>
+                    <h4>Sapphire</h4>
+                    <p>The stone of royalty. Ceylon sapphires are prized for their cornflower blue hue. One of the hardest natural gemstones, making it perfect for everyday rings.</p>
+                    <span class="guide-detail">Mohs Hardness: 9 · Origin: Sri Lanka, Myanmar</span>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-swatch" style="background: linear-gradient(135deg, #287233, #50C878)"></div>
+                    <h4>Emerald</h4>
+                    <p>Prized since Cleopatra's time. Fine emeralds can command higher prices per carat than diamonds. Natural inclusions (called "jardin") are expected and add character.</p>
+                    <span class="guide-detail">Mohs Hardness: 7.5 · Origin: Colombia, Zambia</span>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-swatch" style="background: linear-gradient(135deg, #F4A7BB, #F8C8D4)"></div>
+                    <h4>Morganite</h4>
+                    <p>Named after J.P. Morgan, this blush-pink beryl has surged in popularity. Its warm tone flatters every skin tone and pairs beautifully with rose gold settings.</p>
+                    <span class="guide-detail">Mohs Hardness: 7.5 · Origin: Brazil, Madagascar</span>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-swatch" style="background: linear-gradient(135deg, #E76F00, #FF9F44)"></div>
+                    <h4>Opal</h4>
+                    <p>No two opals are alike. Ethiopian opals display a stunning play-of-color — flashes of red, green, blue, and orange dancing across the surface as the stone moves.</p>
+                    <span class="guide-detail">Mohs Hardness: 5.5 · Origin: Ethiopia, Australia</span>
+                </div>
+            </div>
+            <div class="guide-cta-row">
+                <a href="#" class="btn btn-outline">Explore Full Gemstone Guide</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop by Gemstone -->
+    <section class="gemstone-section">
+        <div class="container">
+            <h2 class="section-title">Shop by Gemstone</h2>
+            <div class="gemstone-grid">
+                <a href="collection.html" class="gemstone-card">
+                    <div class="gemstone-swatch" style="background: linear-gradient(135deg, #6B3FA0, #9B6FD0)"></div>
+                    <span class="gemstone-name">Tanzanite</span>
+                    <span class="gemstone-tag">1,416 pieces</span>
+                </a>
+                <a href="collection.html" class="gemstone-card">
+                    <div class="gemstone-swatch" style="background: linear-gradient(135deg, #E8E8E8, #F5F5F5)"></div>
+                    <span class="gemstone-name">Lab Diamond</span>
+                    <span class="gemstone-tag">757 pieces</span>
+                </a>
+                <a href="collection.html" class="gemstone-card">
+                    <div class="gemstone-swatch" style="background: linear-gradient(135deg, #F4A7BB, #F8C8D4)"></div>
+                    <span class="gemstone-name">Morganite</span>
+                    <span class="gemstone-tag">704 pieces</span>
+                </a>
+                <a href="collection.html" class="gemstone-card">
+                    <div class="gemstone-swatch" style="background: linear-gradient(135deg, #1B4D8B, #3D7CC9)"></div>
+                    <span class="gemstone-name">Sapphire</span>
+                    <span class="gemstone-tag">700 pieces</span>
+                </a>
+                <a href="collection.html" class="gemstone-card">
+                    <div class="gemstone-swatch" style="background: linear-gradient(135deg, #9B111E, #D4374A)"></div>
+                    <span class="gemstone-name">Ruby</span>
+                    <span class="gemstone-tag">587 pieces</span>
+                </a>
+                <a href="collection.html" class="gemstone-card">
+                    <div class="gemstone-swatch" style="background: linear-gradient(135deg, #E76F00, #FF9F44)"></div>
+                    <span class="gemstone-name">Opal</span>
+                    <span class="gemstone-tag">570 pieces</span>
+                </a>
+                <a href="collection.html" class="gemstone-card">
+                    <div class="gemstone-swatch" style="background: linear-gradient(135deg, #7FCDCD, #B5E8E8)"></div>
+                    <span class="gemstone-name">Aquamarine</span>
+                    <span class="gemstone-tag">465 pieces</span>
+                </a>
+                <a href="collection.html" class="gemstone-card">
+                    <div class="gemstone-swatch" style="background: linear-gradient(135deg, #287233, #50C878)"></div>
+                    <span class="gemstone-name">Emerald</span>
+                    <span class="gemstone-tag">421 pieces</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section — Updated with ShopLC history -->
+    <section class="social-proof">
+        <div class="container">
+            <p class="proof-headline">Trusted Since 2007. Featured on Our Own Live TV Channel.</p>
+            <div class="proof-stats">
+                <div class="stat">
+                    <span class="stat-number">17+</span>
+                    <span class="stat-label">Years in Business</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">45M+</span>
+                    <span class="stat-label">Pieces Sold</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">80M+</span>
+                    <span class="stat-label">Households Reached via Live TV</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Gemstone Varieties</span>
+                </div>
+            </div>
+            <p class="proof-footnote">Shop LC broadcasts live 24/7 to over 80 million households across the U.S. — bringing certified gemstone jewelry directly from source to your door since 2007.</p>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-quote">"The tanzanite ring is absolutely breathtaking. The certification gave me peace of mind, and the price was a fraction of what I'd pay at a traditional jeweler."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Sarah M.</span>
+                        <span class="author-purchase">Purchased: Tanzanite Solitaire Ring</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-quote">"I called the personal shopper line and Linda helped me pick the perfect anniversary gift. She even walked me through the certificate. That kind of service is rare online."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Patricia W.</span>
+                        <span class="author-purchase">Purchased: Sapphire Halo Ring</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-quote">"I've been watching Shop LC for years and finally ordered online. Budget Pay made it so easy — 5 payments and I didn't feel it. The morganite earrings are gorgeous."</p>
+                    <div class="testimonial-author">
+                        <span class="author-name">Donna K.</span>
+                        <span class="author-purchase">Purchased: Morganite Halo Drop Earrings</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editorial Split 2 (Reversed) — Certified Luxury -->
+    <section class="editorial-split reversed">
+        <div class="editorial-media">
+            <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=900&q=80" alt="Fine jewelry closeup">
+        </div>
+        <div class="editorial-content">
+            <p class="editorial-eyebrow">Our Promise</p>
+            <h2 class="editorial-headline">Certified Quality.<br>Honest Prices.</h2>
+            <p class="editorial-copy">Every gemstone ships with an independent certification document. We work directly with mines and cutting houses to bring you fine jewelry without the retail markup — the same quality, without the inflated price tag.</p>
+            <a href="collection.html" class="btn btn-dark">Explore Certified Pieces</a>
+        </div>
+    </section>
+
+    <!-- Curated Collections -->
+    <section class="collections-section">
+        <div class="container">
+            <h2 class="section-title">Curated Collections</h2>
+            <div class="collections-grid">
+                <a href="collection.html" class="collection-feature large">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80" alt="Bridal Collection">
+                    <div class="collection-overlay">
+                        <span class="collection-tag">New</span>
+                        <h3>Bridal</h3>
+                        <p>Rings, sets & ceremony pieces</p>
+                    </div>
+                </a>
+                <a href="collection.html" class="collection-feature">
+                    <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=500&q=80" alt="Under $100">
+                    <div class="collection-overlay">
+                        <h3>Under $100</h3>
+                        <p>Real gemstones, real value</p>
+                    </div>
+                </a>
+                <a href="collection.html" class="collection-feature">
+                    <img src="https://images.unsplash.com/photo-1608042314453-ae338d80c427?w=500&q=80" alt="Solid Gold">
+                    <div class="collection-overlay">
+                        <h3>Solid Gold</h3>
+                        <p>10K, 14K & 18K gold pieces</p>
+                    </div>
+                </a>
+                <a href="collection.html" class="collection-feature">
+                    <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=500&q=80" alt="Best Sellers">
+                    <div class="collection-overlay">
+                        <span class="collection-tag">Popular</span>
+                        <h3>Best Sellers</h3>
+                        <p>Customer favorites</p>
+                    </div>
+                </a>
+                <a href="collection.html" class="collection-feature">
+                    <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=500&q=80" alt="Chairman's Collection">
+                    <div class="collection-overlay">
+                        <h3>Chairman's Reserve</h3>
+                        <p>One-of-a-kind fine pieces</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Email Capture -->
+    <section class="email-capture">
+        <div class="email-capture-inner">
+            <h2>Get 10% Off Your First Order</h2>
+            <p>Plus early access to new arrivals, exclusive sales, and gemstone education delivered weekly.</p>
+            <form class="email-form" onsubmit="event.preventDefault(); this.classList.add('submitted');">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn btn-primary">Join the List</button>
+            </form>
+            <p class="email-disclaimer">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">New Arrivals</a></li>
+                        <li><a href="collection.html">Best Sellers</a></li>
+                        <li><a href="collection.html">Rings</a></li>
+                        <li><a href="collection.html">Necklaces</a></li>
+                        <li><a href="collection.html">Earrings</a></li>
+                        <li><a href="collection.html">Bracelets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Gemstones</h4>
+                    <ul>
+                        <li><a href="#">Tanzanite</a></li>
+                        <li><a href="#">Lab Diamonds</a></li>
+                        <li><a href="#">Sapphire</a></li>
+                        <li><a href="#">Emerald</a></li>
+                        <li><a href="#">Morganite</a></li>
+                        <li><a href="#">Opal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="tel:18669867373">Call: 1-866-986-7373</a></li>
+                        <li><a href="#">Live Chat</a></li>
+                        <li><a href="#">Personal Shopper</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Ring Size Guide</a></li>
+                        <li><a href="#">Jewelry Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About Shop LC</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Our Live TV Channel</a></li>
+                        <li><a href="#">Certifications</a></li>
+                        <li><a href="#">Gemstone Guide</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-logo">SHOP <span class="logo-lc">LC</span></p>
+                <p class="footer-legal">&copy; 2026 Shop LC. All rights reserved. Delivering Joy since 2007.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Pinterest">PIN</a>
+                    <a href="#" aria-label="TikTok">TT</a>
+                    <a href="#" aria-label="Facebook">FB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-header">
+            <h3>Your Cart</h3>
+            <button class="cart-close" aria-label="Close cart">&times;</button>
+        </div>
+        <div class="cart-drawer-body">
+            <div class="cart-empty">
+                <p>Your cart is empty</p>
+                <a href="collection.html" class="btn btn-primary">Start Shopping</a>
+            </div>
+        </div>
+        <div class="cart-drawer-footer">
+            <div class="cart-shipping-bar">
+                <div class="shipping-progress" style="width: 0%"></div>
+            </div>
+            <p class="shipping-message">Add <strong>$75</strong> more for free shipping</p>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <script src="main.js"></script>
+</body>
+</html>

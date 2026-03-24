@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rings — Gemstone Jewelry | Shop LC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="collection-page">
+
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="announcement-carousel">
+            <div class="announcement-slide active">Free Shipping Sitewide — No Minimum</div>
+            <div class="announcement-slide">Spring Clearance: 25% OFF with Code <strong>BLOOM</strong></div>
+            <div class="announcement-slide">Certified Gemstones · Lifetime Warranty · Free Returns</div>
+        </div>
+        <button class="announcement-close" aria-label="Close">&times;</button>
+    </div>
+
+    <!-- Personal Shopper Bar -->
+    <div class="personal-shopper-bar">
+        <div class="container">
+            <span class="ps-item"><a href="tel:1-866-986-7373">📞 1-866-986-7373</a></span>
+            <span class="ps-item"><a href="#" class="live-chat-link">💬 Live Chat</a></span>
+            <span class="ps-item">Talk to a Personal Shopper</span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="main-nav">
+            <a href="index.html" class="logo">SHOP <span class="logo-lc">LC</span></a>
+            <ul class="nav-links">
+                <li><a href="collection.html">New In</a></li>
+                <li><a href="collection.html" class="nav-active">Jewelry</a></li>
+                <li><a href="collection.html">Gemstones</a></li>
+                <li><a href="collection.html">Collections</a></li>
+                <li><a href="index.html#gemstone-guide">Gemstone Guide</a></li>
+                <li><a href="#">Gifts</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-icon search-toggle" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                </button>
+                <a href="#" class="nav-icon" aria-label="Account">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </a>
+                <a href="#" class="nav-icon" aria-label="Wishlist">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </a>
+                <button class="nav-icon cart-toggle" aria-label="Cart">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                    <span class="cart-count">0</span>
+                </button>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Collection Header -->
+    <div class="collection-header">
+        <div class="container">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> / <span>Rings</span>
+            </nav>
+            <h1 class="collection-title">RINGS</h1>
+            <p class="collection-description">From solitaire tanzanite to lab-grown diamond halos — certified gemstone rings designed to be worn every day, at prices that let you build a real collection.</p>
+        </div>
+    </div>
+
+    <!-- Subcategory Pills (Mejuri/Missoma style) -->
+    <div class="subcategory-bar">
+        <div class="container">
+            <div class="subcategory-pills">
+                <button class="pill active">All Rings</button>
+                <button class="pill">Solitaire</button>
+                <button class="pill">Halo</button>
+                <button class="pill">Tennis</button>
+                <button class="pill">Cocktail</button>
+                <button class="pill">Stacking</button>
+                <button class="pill">Promise</button>
+                <button class="pill">Engagement</button>
+                <button class="pill">Men's</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Collection Body -->
+    <div class="collection-body">
+        <div class="container">
+            <div class="collection-layout">
+
+                <!-- Sidebar Filters (Missoma-style) -->
+                <aside class="filter-sidebar" id="filterSidebar">
+                    <div class="filter-header-mobile">
+                        <h3>Filters</h3>
+                        <button class="filter-close">&times;</button>
+                    </div>
+
+                    <div class="filter-group">
+                        <button class="filter-toggle open">
+                            Gemstone
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="filter-options show">
+                            <label class="filter-option"><input type="checkbox"> Tanzanite <span class="filter-count">1,416</span></label>
+                            <label class="filter-option"><input type="checkbox"> Lab Diamond <span class="filter-count">757</span></label>
+                            <label class="filter-option"><input type="checkbox"> Morganite <span class="filter-count">704</span></label>
+                            <label class="filter-option"><input type="checkbox"> Sapphire <span class="filter-count">700</span></label>
+                            <label class="filter-option"><input type="checkbox"> Ruby <span class="filter-count">587</span></label>
+                            <label class="filter-option"><input type="checkbox"> Opal <span class="filter-count">570</span></label>
+                            <label class="filter-option"><input type="checkbox"> Emerald <span class="filter-count">421</span></label>
+                            <label class="filter-option"><input type="checkbox"> Aquamarine <span class="filter-count">465</span></label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <button class="filter-toggle open">
+                            Metal
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="filter-options show">
+                            <label class="filter-option"><input type="checkbox"> Sterling Silver <span class="filter-count">4,730</span></label>
+                            <label class="filter-option"><input type="checkbox"> 14K Yellow Gold <span class="filter-count">890</span></label>
+                            <label class="filter-option"><input type="checkbox"> 18K Yellow Gold <span class="filter-count">420</span></label>
+                            <label class="filter-option"><input type="checkbox"> Platinum <span class="filter-count">1,110</span></label>
+                            <label class="filter-option"><input type="checkbox"> Rose Gold <span class="filter-count">560</span></label>
+                            <label class="filter-option"><input type="checkbox"> White Gold <span class="filter-count">780</span></label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <button class="filter-toggle">
+                            Price
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="filter-options">
+                            <label class="filter-option"><input type="checkbox"> Under $50 <span class="filter-count">1,046</span></label>
+                            <label class="filter-option"><input type="checkbox"> $50 – $100 <span class="filter-count">1,269</span></label>
+                            <label class="filter-option"><input type="checkbox"> $100 – $200 <span class="filter-count">1,631</span></label>
+                            <label class="filter-option"><input type="checkbox"> $200 – $500 <span class="filter-count">1,917</span></label>
+                            <label class="filter-option"><input type="checkbox"> $500+ <span class="filter-count">6,449</span></label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <button class="filter-toggle">
+                            Style
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="filter-options">
+                            <label class="filter-option"><input type="checkbox"> Solitaire <span class="filter-count">1,067</span></label>
+                            <label class="filter-option"><input type="checkbox"> Halo <span class="filter-count">924</span></label>
+                            <label class="filter-option"><input type="checkbox"> Cluster <span class="filter-count">103</span></label>
+                            <label class="filter-option"><input type="checkbox"> Tennis <span class="filter-count">78</span></label>
+                            <label class="filter-option"><input type="checkbox"> Cocktail <span class="filter-count">40</span></label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <button class="filter-toggle">
+                            Brand
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                        </button>
+                        <div class="filter-options">
+                            <label class="filter-option"><input type="checkbox"> Rhapsody <span class="filter-count">2,414</span></label>
+                            <label class="filter-option"><input type="checkbox"> Luxoro <span class="filter-count">1,726</span></label>
+                            <label class="filter-option"><input type="checkbox"> Luxuriant <span class="filter-count">1,158</span></label>
+                            <label class="filter-option"><input type="checkbox"> Iliana <span class="filter-count">320</span></label>
+                        </div>
+                    </div>
+
+                    <button class="filter-clear">Clear All Filters</button>
+                </aside>
+
+                <!-- Product Grid -->
+                <div class="collection-grid-area">
+                    <!-- Toolbar -->
+                    <div class="collection-toolbar">
+                        <div class="toolbar-left">
+                            <button class="filter-toggle-mobile" id="filterToggle">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><line x1="4" y1="18" x2="10" y2="18"/></svg>
+                                Filters
+                            </button>
+                            <span class="result-count">6,196 Products</span>
+                        </div>
+                        <div class="toolbar-right">
+                            <select class="sort-select">
+                                <option>Sort by: Featured</option>
+                                <option>Price: Low to High</option>
+                                <option>Price: High to Low</option>
+                                <option>Newest</option>
+                                <option>Best Selling</option>
+                                <option>% Off</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Product Grid -->
+                    <div class="product-grid collection-grid">
+                        <!-- Product 1 -->
+                        <div class="product-card">
+                            <a href="product.html" class="product-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&q=80" alt="Tanzanite Solitaire Ring" class="product-img primary">
+                                <img src="https://images.unsplash.com/photo-1608042314453-ae338d80c427?w=500&q=80" alt="Ring on hand" class="product-img hover">
+                                <span class="product-badge badge-new">New</span>
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                </button>
+                                <button class="quick-add" aria-label="Quick add">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <div class="product-info">
+                                <p class="product-material">14K White Gold · AAA Tanzanite</p>
+                                <h3 class="product-name"><a href="product.html">Tanzanite Solitaire Ring</a></h3>
+                                <p class="product-price">
+                                    <span class="price-compare">$4,699</span>
+                                    <span class="price-current">$1,299</span>
+                                    <span class="price-badge">72% Off</span>
+                                </p>
+                                <div class="product-swatches">
+                                    <span class="swatch active" style="background: #E8E0D0" title="White Gold"></span>
+                                    <span class="swatch" style="background: #FFD700" title="Yellow Gold"></span>
+                                    <span class="swatch" style="background: #E8B4B8" title="Rose Gold"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product 2 -->
+                        <div class="product-card">
+                            <a href="product.html" class="product-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=500&q=80" alt="Lab Diamond Halo Ring" class="product-img primary">
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&q=80" alt="Ring styled" class="product-img hover">
+                                <span class="product-badge badge-best">Best Seller</span>
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                </button>
+                                <button class="quick-add" aria-label="Quick add">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <div class="product-info">
+                                <p class="product-material">Platinum · IGI Certified Lab Diamond</p>
+                                <h3 class="product-name"><a href="product.html">Lab Diamond Halo Ring</a></h3>
+                                <p class="product-price">
+                                    <span class="price-compare">$13,499</span>
+                                    <span class="price-current">$1,299</span>
+                                    <span class="price-badge">90% Off</span>
+                                </p>
+                                <div class="product-swatches">
+                                    <span class="swatch active" style="background: #C0C0C0" title="Platinum"></span>
+                                    <span class="swatch" style="background: #E8E0D0" title="White Gold"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product 3 -->
+                        <div class="product-card">
+                            <a href="product.html" class="product-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1608042314453-ae338d80c427?w=500&q=80" alt="Morganite Promise Ring" class="product-img primary">
+                                <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=500&q=80" alt="Ring detail" class="product-img hover">
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                </button>
+                                <button class="quick-add" aria-label="Quick add">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <div class="product-info">
+                                <p class="product-material">Rose Gold Vermeil · Natural Morganite</p>
+                                <h3 class="product-name"><a href="product.html">Morganite Promise Duo Ring</a></h3>
+                                <p class="product-price">
+                                    <span class="price-compare">$899</span>
+                                    <span class="price-current">$199</span>
+                                    <span class="price-badge">78% Off</span>
+                                </p>
+                                <div class="product-swatches">
+                                    <span class="swatch active" style="background: #E8B4B8" title="Rose Gold"></span>
+                                    <span class="swatch" style="background: #FFD700" title="Yellow Gold"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Product 4 -->
+                        <div class="product-card">
+                            <a href="product.html" class="product-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=500&q=80" alt="Sapphire Cluster Ring" class="product-img primary">
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&q=80" alt="Sapphire ring styled" class="product-img hover">
+                                <span class="product-badge badge-low">Only 5 Left</span>
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                </button>
+                                <button class="quick-add" aria-label="Quick add">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <div class="product-info">
+                                <p class="product-material">18K White Gold · Ceylon Blue Sapphire</p>
+                                <h3 class="product-name"><a href="product.html">Ceylon Sapphire Cluster Ring</a></h3>
+                                <p class="product-price">
+                                    <span class="price-compare">$2,199</span>
+                                    <span class="price-current">$449</span>
+                                    <span class="price-badge">80% Off</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Editorial Break (Mejuri-style) -->
+                        <div class="editorial-break">
+                            <img src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800&q=80" alt="Rings styled on hand">
+                            <div class="editorial-break-content">
+                                <p class="editorial-eyebrow">Styling Tip</p>
+                                <h3>Wear It Your Way</h3>
+                                <p>A single certified gemstone ring makes a statement at the office, at dinner, or on a special occasion. Choose the stone that speaks to you.</p>
+                                <a href="#" class="link-underline">Shop Statement Rings →</a>
+                            </div>
+                        </div>
+                        <!-- Product 5 -->
+                        <div class="product-card">
+                            <a href="product.html" class="product-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=500&q=80" alt="Emerald Solitaire Ring" class="product-img primary">
+                                <img src="https://images.unsplash.com/photo-1608042314453-ae338d80c427?w=500&q=80" alt="Ring detail" class="product-img hover">
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                </button>
+                                <button class="quick-add" aria-label="Quick add">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <div class="product-info">
+                                <p class="product-material">14K Yellow Gold · Natural Emerald</p>
+                                <h3 class="product-name"><a href="product.html">Emerald Octagon Solitaire</a></h3>
+                                <p class="product-price">
+                                    <span class="price-compare">$1,899</span>
+                                    <span class="price-current">$379</span>
+                                    <span class="price-badge">80% Off</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Product 6 -->
+                        <div class="product-card">
+                            <a href="product.html" class="product-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=500&q=80" alt="Opal Stacking Ring" class="product-img primary">
+                                <img src="https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=500&q=80" alt="Opal ring on model" class="product-img hover">
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                </button>
+                                <button class="quick-add" aria-label="Quick add">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <div class="product-info">
+                                <p class="product-material">Sterling Silver · Ethiopian Opal</p>
+                                <h3 class="product-name"><a href="product.html">Ethiopian Opal Stacking Ring</a></h3>
+                                <p class="product-price">
+                                    <span class="price-compare">$299</span>
+                                    <span class="price-current">$69</span>
+                                    <span class="price-badge">77% Off</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Product 7 -->
+                        <div class="product-card">
+                            <a href="product.html" class="product-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=500&q=80" alt="Ruby Halo Ring" class="product-img primary">
+                                <img src="https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=500&q=80" alt="Ruby ring on hand" class="product-img hover">
+                                <span class="product-badge badge-cert">IGI Certified</span>
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                </button>
+                                <button class="quick-add" aria-label="Quick add">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <div class="product-info">
+                                <p class="product-material">18K Yellow Gold · Natural Ruby</p>
+                                <h3 class="product-name"><a href="product.html">Burmese Ruby Halo Ring</a></h3>
+                                <p class="product-price">
+                                    <span class="price-compare">$5,999</span>
+                                    <span class="price-current">$899</span>
+                                    <span class="price-badge">85% Off</span>
+                                </p>
+                            </div>
+                        </div>
+                        <!-- Product 8 -->
+                        <div class="product-card">
+                            <a href="product.html" class="product-img-wrap">
+                                <img src="https://images.unsplash.com/photo-1630019852942-f89202989a59?w=500&q=80" alt="Aquamarine Ring" class="product-img primary">
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&q=80" alt="Aquamarine ring detail" class="product-img hover">
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                                </button>
+                                <button class="quick-add" aria-label="Quick add">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                                    Add to Cart
+                                </button>
+                            </a>
+                            <div class="product-info">
+                                <p class="product-material">14K White Gold · Santa Maria Aquamarine</p>
+                                <h3 class="product-name"><a href="product.html">Aquamarine Cushion Solitaire</a></h3>
+                                <p class="product-price">
+                                    <span class="price-compare">$1,499</span>
+                                    <span class="price-current">$299</span>
+                                    <span class="price-badge">80% Off</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Load More -->
+                    <div class="load-more">
+                        <p class="showing-count">Showing 8 of 6,196 products</p>
+                        <button class="btn btn-outline">Load More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="collection.html">New Arrivals</a></li>
+                        <li><a href="collection.html">Best Sellers</a></li>
+                        <li><a href="collection.html">Rings</a></li>
+                        <li><a href="collection.html">Necklaces</a></li>
+                        <li><a href="collection.html">Earrings</a></li>
+                        <li><a href="collection.html">Bracelets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Gemstones</h4>
+                    <ul>
+                        <li><a href="#">Tanzanite</a></li>
+                        <li><a href="#">Lab Diamonds</a></li>
+                        <li><a href="#">Sapphire</a></li>
+                        <li><a href="#">Emerald</a></li>
+                        <li><a href="#">Morganite</a></li>
+                        <li><a href="#">Opal</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Help</h4>
+                    <ul>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Ring Size Guide</a></li>
+                        <li><a href="#">Jewelry Care</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>About</h4>
+                    <ul>
+                        <li><a href="#">Our Story</a></li>
+                        <li><a href="#">Certifications</a></li>
+                        <li><a href="#">Sustainability</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-logo">SHOP <span class="logo-lc">LC</span></p>
+                <p class="footer-legal">&copy; 2026 Shop LC. All rights reserved. Delivering Joy since 2007.</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram">IG</a>
+                    <a href="#" aria-label="Pinterest">PIN</a>
+                    <a href="#" aria-label="TikTok">TT</a>
+                    <a href="#" aria-label="Facebook">FB</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
