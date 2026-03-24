@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cartClose = document.querySelector('.cart-close');
 
     function openCart() {
-        if (cartDrawer) cartDrawer.classList.add('open');
+        if (!cartDrawer) return;
+        cartDrawer.classList.add('open');
         if (cartOverlay) cartOverlay.classList.add('open');
         document.body.style.overflow = 'hidden';
     }
@@ -260,7 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (addToCartBtn) {
         addToCartBtn.addEventListener('click', () => {
             const original = addToCartBtn.textContent;
-            addToCartBtn.textContent = '✓ Added to Cart to Bag';
+            addToCartBtn.textContent = '✓ Added to Cart';
             addToCartBtn.style.background = 'var(--color-success)';
             addToCartBtn.style.borderColor = 'var(--color-success)';
 
