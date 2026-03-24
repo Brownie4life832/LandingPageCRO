@@ -1146,9 +1146,6 @@ ul { list-style: none; }
 .subcategory-bar {
     border-bottom: 1px solid var(--color-gray-200);
     padding: var(--space-md) 0;
-    position: sticky;
-    top: 65px;
-    z-index: 90;
     background: var(--color-white);
 }
 
