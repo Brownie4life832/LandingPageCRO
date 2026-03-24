@@ -714,7 +714,7 @@ ul { list-style: none; }
 .editorial-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    min-height: 600px;
+    min-height: 360px;
 }
 
 .editorial-split.reversed .editorial-media { order: 2; }
@@ -733,7 +733,7 @@ ul { list-style: none; }
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: var(--space-2xl) var(--space-2xl);
+    padding: var(--space-xl) var(--space-2xl);
     background: var(--color-cream);
 }
 
@@ -2167,11 +2167,54 @@ ul { list-style: none; }
     .cross-sell-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+@media (max-width: 768px) {
+    /* Simplified gemstone guide for mobile — compact rows */
+    .guide-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+        margin-top: var(--space-md);
+    }
+    .guide-card {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        gap: var(--space-md);
+        padding: var(--space-md) !important;
+        border-radius: 0 !important;
+        border: none !important;
+        border-bottom: 1px solid var(--color-gray-200) !important;
+        background: transparent !important;
+    }
+    .guide-card:hover {
+        border-color: var(--color-gray-200);
+        box-shadow: none;
+    }
+    .guide-swatch {
+        width: 36px;
+        height: 36px;
+        flex-shrink: 0;
+        margin-bottom: 0;
+    }
+    .guide-card h4 {
+        flex: 1;
+        margin-bottom: 0;
+        font-size: 1rem;
+    }
+    .guide-card p,
+    .guide-detail {
+        display: none;
+    }
+    .guide-shop-link {
+        margin-top: 0;
+        flex-shrink: 0;
+        font-size: 0.75rem;
+    }
+}
+
 @media (max-width: 480px) {
     .container { padding: 0 var(--space-md); }
     .category-carousel { grid-template-columns: repeat(2, 1fr); }
     .gemstone-grid { grid-template-columns: repeat(2, 1fr); }
-    .guide-grid { grid-template-columns: 1fr; }
     .hero { height: 60vh; }
     .hero-content { padding: var(--space-xl) var(--space-md); }
     .collection-title { font-size: 1.75rem; }
@@ -2468,10 +2511,18 @@ ul { list-style: none; }
 }
 
 .guide-card {
+    display: block;
     padding: var(--space-xl);
     background: var(--color-gray-100);
     border-radius: 4px;
     border: 1px solid var(--color-gray-200);
+    transition: border-color var(--duration), box-shadow var(--duration);
+    text-decoration: none;
+    color: inherit;
+}
+.guide-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
 .guide-swatch {
@@ -2500,6 +2551,19 @@ ul { list-style: none; }
     color: var(--color-gray-400);
     text-transform: uppercase;
     letter-spacing: 0.04em;
+}
+
+.guide-shop-link {
+    display: block;
+    margin-top: var(--space-md);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    letter-spacing: 0.04em;
+    transition: color var(--duration);
+}
+.guide-card:hover .guide-shop-link {
+    color: var(--color-black);
 }
 
 .guide-cta-row {
